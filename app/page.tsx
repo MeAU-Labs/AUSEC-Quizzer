@@ -4,15 +4,16 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="h-full w-full flex flex-col items-center justify-center">
+    <div className="h-full w-full flex flex-col gap-4 items-center justify-center">
+      <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
+        AUSEC Quiz- tagline
+      </h3>
       <Card>
         <CardHeader>
-          <CardTitle>Start Quiz</CardTitle>
           <CardDescription>
             Enter your team ID to start the quiz!
           </CardDescription>

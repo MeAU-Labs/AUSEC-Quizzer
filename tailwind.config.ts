@@ -1,3 +1,4 @@
+import tailwindHeroPatterns from "tailwind-heropatterns";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -29,10 +30,6 @@ const config: Config = {
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
-        },
-        tertiary: {
-          DEFAULT: "hsl(var(--tertiary))",
-          foreground: "hsl(var(--tertiary-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -76,6 +73,20 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    tailwindHeroPatterns({
+      variants: [],
+      patterns: ["tic-tac-toe", "boxes", "jigsaw"],
+      // The foreground colors of the pattern
+      colors: {
+        default: "#a8a29e",
+      },
+
+      // The foreground opacity
+      opacity: {
+        default: "0.1",
+      },
+    }),
+  ],
 };
 export default config;
