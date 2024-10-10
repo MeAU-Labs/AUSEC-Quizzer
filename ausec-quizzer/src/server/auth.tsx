@@ -6,9 +6,10 @@ import {
 } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
 import CredentialsProvider from "next-auth/providers/credentials"; // Import Credentials Provider
-import { createTransport } from "nodemailer"; // Assuming you use nodemailer for sending emails
 import { env } from "~/env";
 import { db } from "~/server/db";
+import { MagicLinkEmail } from "../../emails/signin-magic-link";
+import { resendClient } from "./email";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -69,6 +70,10 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
+        if (user.hasCompletedQuiz) {
+          throw new Error("Team has already completed the quiz");
+        }
+
         // 2. Generate a verification code (e.g., a 6-digit code)
         const verificationCode = Math.floor(
           100000 + Math.random() * 900000,
@@ -83,23 +88,17 @@ export const authOptions: NextAuthOptions = {
           },
         });
 
-        // 4. Send the verification code via email
-        const transporter = createTransport({
-          service: "gmail", // or any email provider
-          auth: {
-            user: process.env.EMAIL_USERNAME,
-            pass: process.env.EMAIL_PASSWORD,
-          },
-        });
-
-        const mailOptions = {
-          from: process.env.EMAIL_FROM,
+        await resendClient.emails.send({
+          from: env.EMAIL_FROM,
           to: user.teamEmail,
-          subject: "Your Verification Code",
-          text: `Your verification URL is: ${process.env.NEXTAUTH_URL}/api/auth/verify?teamId=${teamId}&code=${verificationCode}`,
-        };
-
-        await transporter.sendMail(mailOptions);
+          subject: "Your Sign In Link",
+          react: (
+            <MagicLinkEmail
+              teamId={teamId}
+              verificationCode={verificationCode}
+            />
+          ),
+        });
 
         // 5. Return verification page
         return "/auth/verification";
@@ -107,6 +106,9 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   secret: env.NEXTAUTH_SECRET,
+  session: {
+    strategy: "jwt",
+  },
 };
 
 /**
