@@ -26,7 +26,7 @@ const formSchema = z.object({
 export default function LoginForm() {
   const searchParams = useSearchParams();
 
-  const callbackUrl = searchParams.get("callbackUrl") ?? "/";
+  const callbackUrl = searchParams.get("callbackUrl");
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -42,7 +42,7 @@ export default function LoginForm() {
     const result = await signIn("credentials", {
       redirect: true,
       teamId: values.teamId,
-      callbackUrl: String(callbackUrl),
+      callbackUrl: callbackUrl ? String(callbackUrl) : undefined,
     });
 
     if (result?.error) {

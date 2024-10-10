@@ -88,17 +88,19 @@ export const authOptions: NextAuthOptions = {
           },
         });
 
+        console.log("CREATED VERIFICATION TOKEN", verificationCode);
+
         await resendClient.emails.send({
           from: env.EMAIL_FROM,
           to: user.teamEmail,
           subject: "Your Sign In Link",
-          react: (
-            <MagicLinkEmail
-              teamId={teamId}
-              verificationCode={verificationCode}
-            />
-          ),
+          react: MagicLinkEmail({
+            teamId: teamId,
+            verificationCode: verificationCode,
+          }),
         });
+
+        console.log("SENT EMAIL");
 
         // 5. Return verification page
         return "/auth/verification";
@@ -106,9 +108,6 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   secret: env.NEXTAUTH_SECRET,
-  session: {
-    strategy: "jwt",
-  },
 };
 
 /**
