@@ -1,6 +1,8 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react"; // Import the signIn function from NextAuth
+import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "../ui/button";
@@ -16,12 +18,16 @@ import {
 import { Input } from "../ui/input";
 
 const formSchema = z.object({
-  teamId: z.string().min(2, {
-    message: "teamId must be at least 2 characters.",
+  teamId: z.string().min(1, {
+    message: "team ID is required.",
   }),
 });
 
 export default function LoginForm() {
+  const searchParams = useSearchParams();
+
+  const callbackUrl = searchParams.get("callbackUrl") ?? "/";
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -31,10 +37,20 @@ export default function LoginForm() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    // Call the signIn method with the teamId
+    const result = await signIn("credentials", {
+      redirect: true,
+      teamId: values.teamId,
+      callbackUrl: String(callbackUrl),
+    });
+
+    if (result?.error) {
+      console.error("Error signing in:", result.error);
+    } else {
+      console.log("Signed in successfully!");
+      // You can add logic here to redirect or show a success message
+    }
   }
 
   return (

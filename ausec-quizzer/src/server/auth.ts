@@ -5,8 +5,8 @@ import {
   type NextAuthOptions,
 } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
-import DiscordProvider from "next-auth/providers/discord";
-
+import CredentialsProvider from "next-auth/providers/credentials"; // Import Credentials Provider
+import { createTransport } from "nodemailer"; // Assuming you use nodemailer for sending emails
 import { env } from "~/env";
 import { db } from "~/server/db";
 
@@ -21,14 +21,8 @@ declare module "next-auth" {
     user: {
       id: string;
       // ...other properties
-      // role: UserRole;
     } & DefaultSession["user"];
   }
-
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
 }
 
 /**
@@ -46,22 +40,73 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   },
+  pages: {
+    signIn: "/auth/signin",
+    verifyRequest: "/auth/verification",
+    error: "/auth/error",
+    // Add any custom sign-in, verification, sign-out, or error pages
+  },
   adapter: PrismaAdapter(db) as Adapter,
   providers: [
-    DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
+    CredentialsProvider({
+      name: "Team ID Login",
+      credentials: {
+        teamId: { label: "Team ID", type: "text", placeholder: "98765432" },
+      },
+      async authorize(credentials) {
+        const { teamId } = credentials || {};
+
+        if (!teamId) {
+          throw new Error("Team ID is required");
+        }
+
+        // 1. Look up the user by team ID
+        const user = await db.user.findFirst({
+          where: { id: teamId },
+        });
+
+        if (!user) {
+          return null;
+        }
+
+        // 2. Generate a verification code (e.g., a 6-digit code)
+        const verificationCode = Math.floor(
+          100000 + Math.random() * 900000,
+        ).toString();
+
+        // 3. Store the verification code and its expiration time in the database
+        await db.verificationToken.create({
+          data: {
+            identifier: user.id,
+            token: verificationCode,
+            expires: new Date(Date.now() + 15 * 60 * 1000), // Expires in 15 minutes
+          },
+        });
+
+        // 4. Send the verification code via email
+        const transporter = createTransport({
+          service: "gmail", // or any email provider
+          auth: {
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD,
+          },
+        });
+
+        const mailOptions = {
+          from: process.env.EMAIL_FROM,
+          to: user.teamEmail,
+          subject: "Your Verification Code",
+          text: `Your verification URL is: ${process.env.NEXTAUTH_URL}/api/auth/verify?teamId=${teamId}&code=${verificationCode}`,
+        };
+
+        await transporter.sendMail(mailOptions);
+
+        // 5. Return verification page
+        return "/auth/verification";
+      },
     }),
-    /**
-     * ...add more providers here.
-     *
-     * Most other providers require a bit more work than the Discord provider. For example, the
-     * GitHub provider requires you to add the `refresh_token_expires_in` field to the Account
-     * model. Refer to the NextAuth.js docs for the provider you want to use. Example:
-     *
-     * @see https://next-auth.js.org/providers/github
-     */
   ],
+  secret: env.NEXTAUTH_SECRET,
 };
 
 /**
