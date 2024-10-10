@@ -9,7 +9,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="h-full w-full flex flex-col">
+    <div className="h-full w-full flex flex-col items-center justify-center">
       <Card>
         <CardHeader>
           <CardTitle>Start Quiz</CardTitle>
