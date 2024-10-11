@@ -1,6 +1,6 @@
 # AUSEC Quizzer
 
-AUSEC Quizzer is a web application built for the Anna University Entrepreneurship Club. It allows users to take quizzes and tests their knowledge on entrepreneurship-related topics. This application is built using **Next.js**, **TailwindCSS**, **shadcn/ui**, **Prisma**, **React Hook Form**, and **Resend** for handling emails.
+AUSEC Quizzer is a web application built for the Anna University Entrepreneurship Club. It is designed to host quizzes organized by the club. This application is built using **Next.js**, **TailwindCSS**, **shadcn/ui**, **Prisma**, **React Hook Form**, and **Resend** for handling emails.
 
 ## Table of Contents
 
