@@ -85,7 +85,7 @@ export default async function AuthErrorPage({
   const { heading, message, signin } = errors[errorKey] ?? errors.default;
 
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center gap-4 text-center">
+    <div className="flex h-full w-full flex-col items-center justify-center gap-4 text-center">
       <h1 className="text-lg font-semibold">{heading}</h1>
       <div className="text-sm">{message}</div>
       {signin}

@@ -7,9 +7,9 @@ export default async function VerifyRequestPage() {
     redirect("/");
   }
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center">
+    <div className="flex h-full w-full flex-col items-center justify-center gap-2">
       <h1>Please check your team email</h1>
-      <p>A sign in link has been sent to your email address.</p>
+      <p>A link to start the quiz has been sent to your email address.</p>
     </div>
   );
 }

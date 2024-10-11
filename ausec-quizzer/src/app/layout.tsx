@@ -21,7 +21,7 @@ export default function RootLayout({
       className={`${GeistSans.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-hero-jigsaw">
+      <body className="flex h-screen min-h-screen flex-col bg-hero-jigsaw">
         <TRPCReactProvider>
           <ThemeProvider
             attribute="class"
@@ -29,9 +29,15 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="mx-auto flex h-full w-full max-w-4xl flex-col gap-8 py-6">
+            <div className="mx-auto w-full max-w-4xl flex-grow py-6">
               {children}
             </div>
+            {/* Sticky footer */}
+            <footer className="w-full bg-secondary py-2 text-center text-white">
+              <div className="mx-auto max-w-4xl">
+                <p>&copy; 2024 AUSEC. All rights reserved.</p>
+              </div>
+            </footer>
           </ThemeProvider>
         </TRPCReactProvider>
       </body>
