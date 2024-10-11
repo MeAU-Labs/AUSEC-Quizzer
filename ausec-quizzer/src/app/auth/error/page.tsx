@@ -55,7 +55,10 @@ export default async function AuthErrorPage({
       heading: "Access Denied",
       message: (
         <div className="flex flex-col gap-4">
-          <p>You do not have permission to sign in.</p>
+          <p>
+            You do not have permission to sign in. Your team email might be
+            invalid, or you might have already completed the quiz.
+          </p>
           <Link href="/auth/signin">
             <Button variant="outline">Sign in</Button>
           </Link>

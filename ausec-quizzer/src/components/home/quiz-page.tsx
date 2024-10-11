@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signOut } from "next-auth/react";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -18,10 +19,10 @@ import SignOut from "./signout";
 import SubmitDialog from "./submit-dialog";
 
 const formSchema = z.object({
-  questions: z.array(
+  answers: z.array(
     z.object({
       id: z.number(),
-      answer: z.enum(["0", "1", "2", "3"]),
+      answerIndex: z.number(),
     }),
   ),
 });
@@ -34,22 +35,28 @@ export default function QuizPage() {
     { refetchOnMount: false },
   );
 
+  const submitQuizMutation = api.quiz.submitQuiz.useMutation();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      questions: questions.map((question) => ({
+      answers: questions.map((question) => ({
         id: question.id,
-        answer: undefined,
+        answerIndex: undefined,
       })),
     },
   });
 
   const formRef = useRef<HTMLFormElement>(null);
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
     console.log("Form data:", data);
+
+    await submitQuizMutation.mutateAsync(data.answers);
     // Submit the form data here, e.g., using a mutation to send answers to the server
     setIsSubmitDialogOpen(false);
+
+    await signOut({ callbackUrl: "/thanks", redirect: true });
   };
 
   return (
@@ -71,7 +78,7 @@ export default function QuizPage() {
               <FormField
                 key={`question-${question.id}`}
                 control={form.control}
-                name={`questions.${questions.findIndex((q) => q.id === question.id)}.answer`}
+                name={`answers.${questions.findIndex((q) => q.id === question.id)}.answerIndex`}
                 render={({ field }) => (
                   <FormItem className="space-y-3">
                     <FormLabel className="text-md">
@@ -79,8 +86,8 @@ export default function QuizPage() {
                     </FormLabel>
                     <FormControl>
                       <RadioGroup
-                        value={field.value}
-                        onValueChange={field.onChange}
+                        value={String(field.value)}
+                        onValueChange={(value) => field.onChange(Number(value))}
                         className="flex flex-col space-y-1"
                       >
                         {question.options.map((option, index) => (

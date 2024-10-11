@@ -12,13 +12,14 @@ export const quizRouter = createTRPCRouter({
   submitQuiz: protectedProcedure
     .input(z.array(answerSchema))
     .mutation(async ({ ctx, input }) => {
+      if (ctx.session.user.hasCompletedQuiz) return;
       let score = 0;
 
       const allQuestions = await ctx.db.quizQuestion.findMany({});
 
       for (const answer of input) {
         const question = allQuestions.find(
-          (question) => question.id === answer.questionId,
+          (question) => question.id === answer.id,
         );
 
         if (question?.correctAnswerIndex === answer.answerIndex) {

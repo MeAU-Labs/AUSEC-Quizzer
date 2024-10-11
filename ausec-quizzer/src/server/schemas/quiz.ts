@@ -7,6 +7,6 @@ export const quizQuestionSchema = z.object({
 });
 
 export const answerSchema = z.object({
-  questionId: z.number(),
+  id: z.number(),
   answerIndex: z.number(),
 });
