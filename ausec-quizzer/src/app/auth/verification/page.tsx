@@ -1,9 +1,10 @@
+import { redirect } from "next/navigation";
 import { getServerAuthSession } from "~/server/auth";
 
 export default async function VerifyRequestPage() {
   const session = await getServerAuthSession();
   if (session) {
-    return { redirect: { destination: "/" } };
+    redirect("/");
   }
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center">

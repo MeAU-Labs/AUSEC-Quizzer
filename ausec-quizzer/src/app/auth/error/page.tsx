@@ -1,5 +1,6 @@
 import { type ErrorType } from "next-auth/core/pages/error";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { Button } from "~/components/ui/button";
 import { getServerAuthSession } from "~/server/auth";
 import { APP_NAME } from "~/utils/constants";
@@ -21,7 +22,7 @@ export default async function AuthErrorPage({
   const session = await getServerAuthSession();
 
   if (session) {
-    return { redirect: { destination: "/" } };
+    redirect("/");
   }
 
   const error = searchParams?.error as ErrorType; // Explicitly cast the type
