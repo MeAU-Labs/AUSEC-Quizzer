@@ -23,7 +23,7 @@ declare module "next-auth" {
       id: string;
       emailVerified?: Date;
       schoolEmail: string;
-      score: int;
+      score: number;
       hasCompletedQuiz: boolean;
       // ...other properties
     } & DefaultSession["user"];
@@ -45,12 +45,13 @@ export const authOptions: NextAuthOptions = {
       },
     }),
 
-    async signIn({ user, account, email }) {
+    async signIn({ user }) {
       if (user.email) {
         const userExists = await db.user.findUnique({
           where: { email: user.email },
         });
-        if (userExists) return true;
+        // don't allow sign in if user exists but has completed the quiz
+        if (userExists) return !userExists.hasCompletedQuiz;
       }
       return false;
     },

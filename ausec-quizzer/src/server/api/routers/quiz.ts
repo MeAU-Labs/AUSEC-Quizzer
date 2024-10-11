@@ -6,10 +6,29 @@ export const quizRouter = createTRPCRouter({
   getQuizQuestions: protectedProcedure
     .input(z.object({}))
     .output(z.array(quizQuestionSchema))
-    .query(async ({ ctx, input }) => {
+    .query(async ({ ctx }) => {
       return await ctx.db.quizQuestion.findMany({});
     }),
   submitQuiz: protectedProcedure
     .input(z.array(answerSchema))
-    .mutation(async ({ ctx, input }) => {}),
+    .mutation(async ({ ctx, input }) => {
+      let score = 0;
+
+      const allQuestions = await ctx.db.quizQuestion.findMany({});
+
+      for (const answer of input) {
+        const question = allQuestions.find(
+          (question) => question.id === answer.questionId,
+        );
+
+        if (question?.correctAnswerIndex === answer.answerIndex) {
+          score++;
+        }
+      }
+
+      await ctx.db.user.update({
+        where: { id: ctx.session.user.id },
+        data: { score: score, hasCompletedQuiz: true },
+      });
+    }),
 });
