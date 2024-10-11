@@ -1,14 +1,14 @@
 import { PrismaAdapter } from "@auth/prisma-adapter";
+import MagicLinkEmail from "emails/signin-magic-link";
 import {
   getServerSession,
   type DefaultSession,
   type NextAuthOptions,
 } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
-import CredentialsProvider from "next-auth/providers/credentials"; // Import Credentials Provider
+import EmailProvider from "next-auth/providers/email";
 import { env } from "~/env";
 import { db } from "~/server/db";
-import { MagicLinkEmail } from "../../emails/signin-magic-link";
 import { resendClient } from "./email";
 
 /**
@@ -21,6 +21,10 @@ declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
       id: string;
+      emailVerified?: Date;
+      schoolEmail: string;
+      score: int;
+      hasCompletedQuiz: boolean;
       // ...other properties
     } & DefaultSession["user"];
   }
@@ -40,6 +44,16 @@ export const authOptions: NextAuthOptions = {
         id: user.id,
       },
     }),
+
+    async signIn({ user, account, email }) {
+      if (user.email) {
+        const userExists = await db.user.findUnique({
+          where: { email: user.email },
+        });
+        if (userExists) return true;
+      }
+      return false;
+    },
   },
   pages: {
     signIn: "/auth/signin",
@@ -49,61 +63,29 @@ export const authOptions: NextAuthOptions = {
   },
   adapter: PrismaAdapter(db) as Adapter,
   providers: [
-    CredentialsProvider({
-      name: "Team ID Login",
-      credentials: {
-        teamId: { label: "Team ID", type: "text", placeholder: "98765432" },
+    EmailProvider({
+      server: {
+        host: env.EMAIL_SERVER_HOST,
+        port: env.EMAIL_SERVER_PORT,
+        auth: {
+          user: env.EMAIL_SERVER_USER,
+          pass: env.EMAIL_SERVER_PASSWORD,
+        },
       },
-      async authorize(credentials) {
-        const { teamId } = credentials || {};
-
-        if (!teamId) {
-          throw new Error("Team ID is required");
-        }
-
-        // 1. Look up the user by team ID
-        const user = await db.user.findFirst({
-          where: { id: teamId },
-        });
-
-        if (!user) {
-          return null;
-        }
-
-        if (user.hasCompletedQuiz) {
-          throw new Error("Team has already completed the quiz");
-        }
-
-        // 2. Generate a verification code (e.g., a 6-digit code)
-        const verificationCode = Math.floor(
-          100000 + Math.random() * 900000,
-        ).toString();
-
-        // 3. Store the verification code and its expiration time in the database
-        await db.verificationToken.create({
-          data: {
-            identifier: user.id,
-            token: verificationCode,
-            expires: new Date(Date.now() + 15 * 60 * 1000), // Expires in 15 minutes
-          },
-        });
-
-        console.log("CREATED VERIFICATION TOKEN", verificationCode);
-
+      from: env.EMAIL_FROM,
+      async sendVerificationRequest({
+        identifier: email,
+        url,
+        provider: { from },
+      }) {
         await resendClient.emails.send({
-          from: env.EMAIL_FROM,
-          to: user.teamEmail,
+          from: from,
+          to: email,
           subject: "Your Sign In Link",
           react: MagicLinkEmail({
-            teamId: teamId,
-            verificationCode: verificationCode,
+            verificationUrl: url,
           }),
         });
-
-        console.log("SENT EMAIL");
-
-        // 5. Return verification page
-        return "/auth/verification";
       },
     }),
   ],

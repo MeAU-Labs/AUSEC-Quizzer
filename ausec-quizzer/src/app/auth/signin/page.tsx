@@ -1,3 +1,5 @@
+import { getCsrfToken } from "next-auth/react";
+import { redirect } from "next/navigation";
 import SignInPage from "~/components/signin/signin-page";
 import { getServerAuthSession } from "~/server/auth";
 import { HydrateClient } from "~/trpc/server";
@@ -5,13 +7,15 @@ import { HydrateClient } from "~/trpc/server";
 export default async function SignIn() {
   const session = await getServerAuthSession();
 
+  const csrfToken = await getCsrfToken();
+
   if (session) {
-    return { redirect: { destination: "/" } };
+    redirect("/");
   }
 
   return (
     <HydrateClient>
-      <SignInPage />
+      <SignInPage csrfToken={csrfToken} />
     </HydrateClient>
   );
 }

@@ -22,7 +22,10 @@ export const env = createEnv({
       // VERCEL_URL doesn't include `https` so it cant be validated as a URL
       process.env.VERCEL ? z.string() : z.string().url(),
     ),
-    RESEND_API_KEY: z.string(),
+    EMAIL_SERVER_HOST: z.string(),
+    EMAIL_SERVER_PORT: z.coerce.number(),
+    EMAIL_SERVER_USER: z.string(),
+    EMAIL_SERVER_PASSWORD: z.string(),
     EMAIL_FROM: z.string(),
   },
 
@@ -44,7 +47,10 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    EMAIL_SERVER_HOST: process.env.EMAIL_SERVER_HOST,
+    EMAIL_SERVER_PORT: process.env.EMAIL_SERVER_PORT,
+    EMAIL_SERVER_USER: process.env.EMAIL_SERVER_USER,
+    EMAIL_SERVER_PASSWORD: process.env.EMAIL_SERVER_PASSWORD,
     EMAIL_FROM: process.env.EMAIL_FROM,
   },
   /**

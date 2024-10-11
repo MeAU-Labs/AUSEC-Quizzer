@@ -12,16 +12,12 @@ import {
 import { env } from "~/env";
 
 interface MagicLinkEmailProps {
-  verificationCode: string;
-  teamId: string;
+  verificationUrl: string;
 }
 
 const baseUrl = env.NEXTAUTH_URL;
 
-export const MagicLinkEmail = ({
-  verificationCode,
-  teamId,
-}: MagicLinkEmailProps) => (
+export const MagicLinkEmail = ({ verificationUrl }: MagicLinkEmailProps) => (
   <Html>
     <Head />
     <Preview>Log in with this magic link</Preview>
@@ -29,7 +25,7 @@ export const MagicLinkEmail = ({
       <Container style={container}>
         <Heading style={h1}>Login</Heading>
         <Link
-          href={`${baseUrl}/api/auth/verify?teamId=${teamId}&code=${verificationCode}`}
+          href={verificationUrl}
           target="_blank"
           style={{
             ...link,
@@ -85,8 +81,7 @@ export const MagicLinkEmail = ({
 );
 
 MagicLinkEmail.PreviewProps = {
-  verificationCode: "sparo-ndigo-amurt-secan",
-  teamId: "12345678",
+  verificationUrl: "sparo-ndigo-amurt-secan",
 } as MagicLinkEmailProps;
 
 export default MagicLinkEmail;

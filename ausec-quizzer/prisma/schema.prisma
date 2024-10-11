@@ -36,7 +36,8 @@ model Session {
 // Quiz Team
 model User {
     id               String    @id @default(cuid())
-    teamEmail        String
+    email            String    @unique
+    emailVerified    DateTime?
     schoolEmail      String
     score            Int       @default(0)
     hasCompletedQuiz Boolean   @default(false)

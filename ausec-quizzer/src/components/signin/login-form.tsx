@@ -17,64 +17,90 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 
-const formSchema = z.object({
-  teamId: z.string().min(1, {
-    message: "team ID is required.",
-  }),
+const signinSchema = z.object({
+  email: z
+    .string({ required_error: "Please enter your email address." })
+    .email({ message: "Please enter a valid email address." }),
+  csrfToken: z.string(),
+  callbackUrl: z.optional(z.string()),
 });
 
-export default function LoginForm() {
+export default function LoginForm({
+  csrfToken,
+}: {
+  csrfToken: string | undefined;
+}) {
   const searchParams = useSearchParams();
 
-  const callbackUrl = searchParams.get("callbackUrl");
+  const callbackUrl = searchParams.get("callbackUrl") ?? "/";
 
   // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      teamId: "",
-    },
+  const form = useForm<z.infer<typeof signinSchema>>({
+    resolver: zodResolver(signinSchema),
+    defaultValues: { email: "", csrfToken, callbackUrl: String(callbackUrl) },
   });
 
   // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    // Call the signIn method with the teamId
-    const result = await signIn("credentials", {
+  async function onSubmit(values: z.infer<typeof signinSchema>) {
+    await signIn("email", {
       redirect: true,
-      teamId: values.teamId,
-      callbackUrl: callbackUrl ? String(callbackUrl) : undefined,
+      email: values.email,
+      callbackUrl: String(callbackUrl),
     });
-
-    if (result?.error) {
-      console.error("Error signing in:", result.error);
-    } else {
-      console.log("Signed in successfully!");
-      // You can add logic here to redirect or show a success message
-    }
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        method="POST"
+        action="/api/auth/signin/email"
+        onSubmit={form.handleSubmit(onSubmit)}
+      >
         <FormField
           control={form.control}
-          name="teamId"
+          name="csrfToken"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Team ID</FormLabel>
               <FormControl>
-                <Input placeholder="98765432" {...field} />
+                <Input type="hidden" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your team ID generated upon registration.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full">
-          Start Quiz
-        </Button>
+        <FormField
+          control={form.control}
+          name="callbackUrl"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Input type="hidden" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <div className="flex w-full flex-col gap-8">
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Team Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="team@example.com" {...field} />
+                </FormControl>
+                <FormDescription>
+                  This is the email linked to your team.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" className="w-full">
+            Start Quiz
+          </Button>
+        </div>
       </form>
     </Form>
   );

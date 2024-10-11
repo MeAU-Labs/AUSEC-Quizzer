@@ -20,12 +20,16 @@ const errors = {
   OAuthAccountNotLinked:
     "To confirm your identity, sign in with the same account you used originally.",
   EmailSignin: "The e-mail could not be sent.",
-  CredentialsSignin: "Sign in failed. Check your team ID.",
+  CredentialsSignin: "Sign in failed. Check your team email.",
   SessionRequired: "Please sign in to access this page.",
   default: "Unable to sign in.",
 };
 
-export default function SignInPage() {
+export default function SignInPage({
+  csrfToken,
+}: {
+  csrfToken: string | undefined;
+}) {
   const searchParams = useSearchParams();
 
   const error = searchParams.get("error");
@@ -38,15 +42,15 @@ export default function SignInPage() {
       <Card>
         <CardHeader>
           <CardDescription>
-            Enter your team ID to start the quiz!
+            Enter your team email to start the quiz!
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <LoginForm />
+          <LoginForm csrfToken={csrfToken} />
         </CardContent>
       </Card>
       {error && (
-        <p className="text-destructive text-center text-sm font-semibold">
+        <p className="text-center text-sm font-semibold text-destructive">
           {errors[error] ?? errors.default}
         </p>
       )}
