@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
-import SignOut from "~/components/home/signout";
+import QuizPage from "~/components/home/quiz-page";
 import { getServerAuthSession } from "~/server/auth";
-import { HydrateClient } from "~/trpc/server";
+import { api, HydrateClient } from "~/trpc/server";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -10,14 +10,12 @@ export default async function Home() {
     redirect("/auth/signin");
   }
 
+  void api.user.get.prefetch({});
+  void api.quiz.getQuizQuestions.prefetch({});
+
   return (
     <HydrateClient>
-      <div className="flex h-full w-full flex-1 flex-col items-center justify-center gap-4">
-        <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-          AUSEC Quiz- tagline
-        </h3>
-        <SignOut />
-      </div>
+      <QuizPage />
     </HydrateClient>
   );
 }

@@ -29,10 +29,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="mx-auto w-full max-w-4xl flex-grow py-6">
-              {children}
-            </div>
-            {/* Sticky footer */}
+            {children}
             <footer className="w-full bg-secondary py-2 text-center text-white">
               <div className="mx-auto max-w-4xl">
                 <p>&copy; 2024 AUSEC. All rights reserved.</p>
