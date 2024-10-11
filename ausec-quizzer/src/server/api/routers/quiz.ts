@@ -9,6 +9,7 @@ export const quizRouter = createTRPCRouter({
     .query(async ({ ctx }) => {
       return await ctx.db.quizQuestion.findMany({});
     }),
+
   submitQuiz: protectedProcedure
     .input(z.array(answerSchema))
     .mutation(async ({ ctx, input }) => {
@@ -31,5 +32,18 @@ export const quizRouter = createTRPCRouter({
         where: { id: ctx.session.user.id },
         data: { score: score, hasCompletedQuiz: true },
       });
+
+      // Return the calculated score after submission
+      return score;
+    }),
+
+  // New procedure to fetch user's score
+  getUserScore: protectedProcedure
+    .query(async ({ ctx }) => {
+      const user = await ctx.db.user.findUnique({
+        where: { id: ctx.session.user.id },
+        select: { score: true },
+      });
+      return user?.score || 0; // Return 0 if no score is found
     }),
 });

@@ -20,114 +20,93 @@ const baseUrl = env.NEXTAUTH_URL;
 export const MagicLinkEmail = ({ verificationUrl }: MagicLinkEmailProps) => (
   <Html>
     <Head />
-    <Preview>Log in with this magic link</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Heading style={h1}>Login</Heading>
-        <Link
-          href={verificationUrl}
-          target="_blank"
-          style={{
-            ...link,
-            display: "block",
-            marginBottom: "16px",
-          }}
-        >
-          Click here to sign in with this magic link
+    <Preview>Login to AUSEC Quizzer with this magic link</Preview>
+    <Body style={styles.main}>
+      <Container style={styles.container}>
+        <Img
+          src="https://imgur.com/a/7MN0UtB"
+          width="64"
+          height="64"
+          alt="AUSEC Quizzer Logo"
+          style={{ display: "block", margin: "0 auto" }} // Center the logo
+        />
+
+        <Heading style={styles.h1}>Access Your AUSEC Quiz Account</Heading>
+
+        <Text style={styles.subText}>
+          Click the button below to securely sign in to your account.
+        </Text>
+
+        <Link href={verificationUrl} target="_blank" style={styles.button}>
+          Sign in to AUSEC Quizzer
         </Link>
 
-        <Text
-          style={{
-            ...text,
-            color: "#ababab",
-            marginTop: "14px",
-            marginBottom: "16px",
-          }}
-        >
-          If you didn&apos;t try to sign in, you can safely ignore this email.
+        <Text style={styles.footerText}>
+          If you didn't request this email, you can safely ignore it.
         </Text>
-        <Text
-          style={{
-            ...text,
-            color: "#ababab",
-            marginTop: "12px",
-            marginBottom: "38px",
-          }}
-        >
-          Hint: You can set a permanent password in Settings & members → My
-          account.
+
+        <Text style={styles.footerText}>
+          Need help? Contact us at <Link href="mailto:support@ausec.com">support@ausec.com</Link>.
         </Text>
-        <Img
-          src={`${baseUrl}/static/-logo.png`}
-          width="32"
-          height="32"
-          alt="'s Logo"
-        />
-        <Text style={footer}>
-          <Link
-            href={baseUrl}
-            target="_blank"
-            style={{ ...link, color: "#898989" }}
-          >
-            AUSEC Quizzer
-          </Link>
-          , the all-in-one-workspace
-          <br />
-          for your notes, tasks, wikis, and databases.
+
+        <Text style={styles.footerNote}>
+          AUSEC Quizzer &mdash; Empowering minds with knowledge.
         </Text>
       </Container>
     </Body>
   </Html>
 );
 
-MagicLinkEmail.PreviewProps = {
-  verificationUrl: "sparo-ndigo-amurt-secan",
-} as MagicLinkEmailProps;
+const styles = {
+  main: {
+    backgroundColor: "#f4f4f4",
+    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+  },
+  container: {
+    padding: "40px",
+    backgroundColor: "#ffffff",
+    borderRadius: "8px",
+    maxWidth: "600px",
+    margin: "0 auto",
+    textAlign: "center" as const,
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+  },
+  logo: {
+    marginBottom: "20px",
+    display: "block",
+    margin: "0 auto", // Center the logo
+  },
+  h1: {
+    color: "#333",
+    fontSize: "28px",
+    marginBottom: "20px",
+    fontWeight: "700",
+  },
+  subText: {
+    color: "#555",
+    fontSize: "16px",
+    marginBottom: "30px",
+  },
+  button: {
+    backgroundColor: "#1D4ED8",
+    color: "#ffffff",
+    padding: "12px 24px",
+    borderRadius: "6px",
+    textDecoration: "none",
+    fontWeight: "600",
+    fontSize: "16px",
+  },
+  footerText: {
+    color: "#999",
+    fontSize: "14px",
+    marginTop: "20px",
+  },
+  footerNote: {
+    color: "#666",
+    fontSize: "12px",
+    marginTop: "30px",
+    fontStyle: "italic" as const,
+  },
+};
 
 export default MagicLinkEmail;
-
-const main = {
-  backgroundColor: "#ffffff",
-};
-
-const container = {
-  paddingLeft: "12px",
-  paddingRight: "12px",
-  margin: "0 auto",
-};
-
-const h1 = {
-  color: "#333",
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-  fontSize: "24px",
-  fontWeight: "bold",
-  margin: "40px 0",
-  padding: "0",
-};
-
-const link = {
-  color: "#2754C5",
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-  fontSize: "14px",
-  textDecoration: "underline",
-};
-
-const text = {
-  color: "#333",
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-  fontSize: "14px",
-  margin: "24px 0",
-};
-
-const footer = {
-  color: "#898989",
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-  fontSize: "12px",
-  lineHeight: "22px",
-  marginTop: "12px",
-  marginBottom: "24px",
-};
