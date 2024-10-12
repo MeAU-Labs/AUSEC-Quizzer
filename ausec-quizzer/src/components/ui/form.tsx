@@ -1,11 +1,11 @@
-import * as LabelPrimitive from "@radix-ui/react-label";
+import type * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 import * as React from "react";
 import {
   Controller,
-  ControllerProps,
-  FieldPath,
-  FieldValues,
+  type ControllerProps,
+  type FieldPath,
+  type FieldValues,
   FormProvider,
   useFormContext,
 } from "react-hook-form";
@@ -135,7 +135,7 @@ const FormDescription = React.forwardRef<
     <p
       ref={ref}
       id={formDescriptionId}
-      className={cn("text-muted-foreground text-sm", className)}
+      className={cn("text-sm text-muted-foreground", className)}
       {...props}
     />
   );
@@ -157,7 +157,7 @@ const FormMessage = React.forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={cn("text-destructive text-sm font-medium", className)}
+      className={cn("text-sm font-medium text-destructive", className)}
       {...props}
     >
       {body}
