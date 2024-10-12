@@ -5,6 +5,7 @@ import {
   Head,
   Heading,
   Html,
+  Img,
   Preview,
   Text,
 } from "@react-email/components";
@@ -20,6 +21,13 @@ const ScoreEmail = ({ score, totalScore }: ScoreEmailProps) => (
     <Preview>Your Quiz Score from AUSEC Quizzer</Preview>
     <Body style={styles.main}>
       <Container style={styles.container}>
+        <Img
+          src={"https://i.imgur.com/ffhxSEU.jpeg"}
+          width="164"
+          height="164"
+          alt="AUSEC Quizzer Logo"
+          style={{ display: "block", margin: "0 auto" }} // Center the logo
+        />
         <Heading style={styles.subText}>
           Thank You for Participating in the AUSEC Quiz!
         </Heading>
