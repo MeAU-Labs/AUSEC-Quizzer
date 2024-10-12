@@ -9,6 +9,7 @@ import {
   Preview,
   Text,
 } from "@react-email/components";
+import { FEEDBACK_EMAIL } from "~/utils/constants";
 
 interface MagicLinkEmailProps {
   verificationUrl: string;
@@ -44,7 +45,7 @@ export const MagicLinkEmail = ({ verificationUrl }: MagicLinkEmailProps) => (
 
         <Text style={styles.footerText}>
           Need help? Contact us at{" "}
-          <Link href="mailto:support@ausec.com">support@ausec.com</Link>.
+          <Link href={`mailto:${FEEDBACK_EMAIL}`}>support@ausec.com</Link>.
         </Text>
 
         <Text style={styles.footerNote}>

@@ -6,9 +6,11 @@ import {
   Heading,
   Html,
   Img,
+  Link,
   Preview,
   Text,
 } from "@react-email/components";
+import { FEEDBACK_EMAIL } from "~/utils/constants";
 
 interface ScoreEmailProps {
   score: number;
@@ -35,7 +37,8 @@ const ScoreEmail = ({ score, totalScore }: ScoreEmailProps) => (
           Your score: {score}/{totalScore}
         </Text>
         <Text style={styles.footerText}>
-          If you have any questions, feel free to contact us.
+          Need help? Contact us at{" "}
+          <Link href={`mailto:${FEEDBACK_EMAIL}`}>support@ausec.com</Link>.
         </Text>
         <Text style={styles.footerNote}>
           AUSEC Quizzer &mdash; Empowering minds with knowledge.
