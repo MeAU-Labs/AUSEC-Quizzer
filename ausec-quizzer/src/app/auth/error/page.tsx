@@ -13,11 +13,10 @@ interface ErrorView {
 }
 
 export default async function AuthErrorPage({
-  params,
   searchParams,
 }: {
   params: { slug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams?: Record<string, string | string[] | undefined>;
 }) {
   const session = await getServerAuthSession();
 
@@ -25,6 +24,7 @@ export default async function AuthErrorPage({
     redirect("/");
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const error = searchParams?.error as ErrorType; // Explicitly cast the type
 
   const errors: Record<ErrorType, ErrorView> = {
@@ -82,9 +82,11 @@ export default async function AuthErrorPage({
     },
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
   const errorKey = (error || "default").toLowerCase() as ErrorType;
 
   // TODO: set appropriate status also?
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const { heading, message, signin } = errors[errorKey] ?? errors.default;
 
   return (
