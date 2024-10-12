@@ -5,6 +5,7 @@ import { signIn } from "next-auth/react"; // Import the signIn function from Nex
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { LoadingSpinner } from "../loading-spinner";
 import { Button } from "../ui/button";
 import {
   Form,
@@ -97,8 +98,18 @@ export default function LoginForm({
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full">
-            Start Quiz
+          <Button
+            type="submit"
+            className="flex w-full items-center gap-2"
+            disabled={form.formState.isSubmitting}
+          >
+            {form.formState.isSubmitting ? (
+              <>
+                <LoadingSpinner className="h-4 w-4" /> <p>Sending start link</p>
+              </>
+            ) : (
+              <p>Send start link</p>
+            )}
           </Button>
         </div>
       </form>
