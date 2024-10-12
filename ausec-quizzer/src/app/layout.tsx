@@ -8,7 +8,7 @@ import { TRPCReactProvider } from "~/trpc/react";
 
 export const metadata: Metadata = {
   title: "AUSEC Quizzer",
-  description: "Next-generation quiz application from AUSEC",
+  description: "Empowering minds with knowledge.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 

@@ -1,5 +1,8 @@
+import ScoreEmail from "emails/score-email";
 import { z } from "zod";
+import { env } from "~/env";
 import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
+import { resendClient } from "~/server/email";
 import { answerSchema, quizQuestionSchema } from "~/server/schemas/quiz";
 
 export const quizRouter = createTRPCRouter({
@@ -33,17 +36,12 @@ export const quizRouter = createTRPCRouter({
         data: { score: score, hasCompletedQuiz: true },
       });
 
-      // Return the calculated score after submission
-      return score;
-    }),
-
-  // New procedure to fetch user's score
-  getUserScore: protectedProcedure
-    .query(async ({ ctx }) => {
-      const user = await ctx.db.user.findUnique({
-        where: { id: ctx.session.user.id },
-        select: { score: true },
+      // send email with quiz score
+      await resendClient.emails.send({
+        from: env.EMAIL_FROM,
+        to: ctx.session.user.email,
+        subject: "AUSEC Quiz Score",
+        react: ScoreEmail({ score: score, totalScore: allQuestions.length }),
       });
-      return user?.score || 0; // Return 0 if no score is found
     }),
 });

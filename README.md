@@ -8,7 +8,8 @@ AUSEC Quizzer is a web application built for the Anna University Entrepreneurshi
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
 - [Available Scripts](#available-scripts)
-- [Database Management](#database-management)
+  - [Database Management](#database-management)
+  - [Email Management](#email-management)
 - [Tech Stack](#tech-stack)
 - [License](#license)
 
@@ -92,7 +93,7 @@ In the project directory, you can run the following commands:
   npm run lint
   ```
 
-## Database Management
+### Database Management
 
 The project uses Prisma for database management. The following commands are available for managing the database:
 
@@ -117,6 +118,25 @@ The project uses Prisma for database management. The following commands are avai
 - **Open Prisma Studio** (a web-based interface to inspect and modify your database):
   ```bash
   npm run db:studio
+  ```
+
+### Email Management
+
+- **Build email templates**:
+
+  ```bash
+  npm run email:build
+  ```
+
+- **Preview email templates**:
+
+  ```bash
+  npm run email:preview
+  ```
+
+- **Start development server**:
+  ```bash
+  npm run email:dev
   ```
 
 ## Tech Stack

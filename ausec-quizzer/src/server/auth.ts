@@ -21,6 +21,7 @@ declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
       id: string;
+      email: string;
       emailVerified?: Date;
       schoolEmail: string;
       score: number;
