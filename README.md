@@ -142,6 +142,7 @@ The project uses Prisma for database management. The following commands are avai
 ## Tech Stack
 
 - **Next.js** - A React framework for building server-rendered applications.
+- **TRPC**- A framework for building end-to-end typesafe APIs
 - **TailwindCSS** - A utility-first CSS framework for rapid UI development.
 - **shadcn/ui** - A component library built on top of Radix UI and TailwindCSS.
 - **Prisma** - An ORM for type-safe database access.
