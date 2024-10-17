@@ -454,31 +454,12 @@ export default function LandingPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4">
-                    The Centre for Entrepreneurship Development (CED) at Anna
-                    University is committed to promoting entrepreneurship among
-                    engineering students in Tamil Nadu. Our key initiatives
-                    include:
-                  </p>
-                  <ul className="list-inside list-disc space-y-2">
-                    <li>
-                      Establishing Entrepreneurship Development Cells (EDCs) in
-                      CEG, AC Tech, and MIT (2013-2016)
-                    </li>
-                    <li>Creating an EDC Library and a forum for girls</li>
-                    <li>Promoting organic farming entrepreneurship</li>
-                    <li>
-                      Coordinating EDCs in affiliated colleges across the state
-                    </li>
-                    <li>Conducting workshops for faculty and students</li>
-                    <li>
-                      Establishing incubators on CEG, AC Tech, and MIT campuses
-                    </li>
-                  </ul>
-                  <p className="mt-4">
-                    The CEGAIN incubator at CEG, launched in 2016, supports
-                    startups and continues our mission to foster innovation and
-                    entrepreneurship.
+                <p className="mb-4">
+                    The Centre for Entrepreneurship Development (CED) at Anna University, founded in 2003, is a launchpad for student innovation, 
+                    turning ideas into successful startups. Collaborating with EDII Tamil Nadu through a unique Hub & Spoke model, CED connects 
+                    entrepreneurship cells across various institutions, from engineering to arts. Their flagship initiative, AUSEC, drives startup 
+                    culture through events like ENANTRA, which empower students with hands-on training in design thinking, innovation, and entrepreneurship. 
+                    This holistic approach has transformed graduates into dynamic entrepreneurs, creating a vibrant startup ecosystem across Tamil Nadu.
                   </p>
                 </CardContent>
               </Card>
