@@ -5,10 +5,11 @@ import { type Metadata } from "next";
 
 import { ThemeProvider } from "~/components/theme-provider";
 import { TRPCReactProvider } from "~/trpc/react";
+import { APP_NAME } from "~/utils/constants";
 
 export const metadata: Metadata = {
-  title: "AUSEC Quizzer",
-  description: "Empowering minds with knowledge.",
+  title: APP_NAME,
+  description: "Igniting Young Minds, Cultivating Tomorrow's Innovators.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
@@ -21,7 +22,7 @@ export default function RootLayout({
       className={`${GeistSans.variable}`}
       suppressHydrationWarning
     >
-      <body className="flex h-screen min-h-screen flex-col bg-hero-jigsaw">
+      <body className="flex h-screen min-h-screen flex-col font-mono bg-hero-jigsaw">
         <TRPCReactProvider>
           <ThemeProvider
             attribute="class"
@@ -30,11 +31,6 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
-            <footer className="w-full bg-secondary py-2 text-center text-white">
-              <div className="mx-auto max-w-4xl">
-                <p>&copy; 2024 AUSEC. All rights reserved.</p>
-              </div>
-            </footer>
           </ThemeProvider>
         </TRPCReactProvider>
       </body>
