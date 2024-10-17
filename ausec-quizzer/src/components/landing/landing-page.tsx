@@ -35,7 +35,7 @@ export default function LandingPage() {
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8 },
+    transition: { duration: 0.6 },
   };
 
   const staggerChildren = {
@@ -75,14 +75,24 @@ export default function LandingPage() {
             <p className="mb-6 text-2xl text-muted-foreground">
               Igniting Young Minds, Cultivating Tomorrow&apos;s Innovators
             </p>
-            <motion.button>
-              <a
-                href="/quiz"
-                className="hover:bg-primary-dark rounded-lg bg-primary px-4 py-2 font-semibold text-white"
-              >
-                Take the quiz now
-              </a>
-            </motion.button>
+            <div className="flex justify-center space-x-4">
+              <motion.button>
+                <a
+                  href="/quiz"
+                  className="hover:bg-primary-dark rounded-lg bg-primary px-4 py-2 font-semibold text-white"
+                >
+                  Take the quiz
+                </a>
+              </motion.button>
+              <motion.button>
+                <a
+                  href="/register"
+                  className="rounded-lg border-2 border-white bg-background px-4 py-2 font-semibold text-white"
+                >
+                  register now
+                </a>
+              </motion.button>
+            </div>
           </motion.div>
           <motion.div
             className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3"
