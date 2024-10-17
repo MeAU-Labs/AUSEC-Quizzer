@@ -37,7 +37,7 @@ export default function SignInPage({
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-4">
       <h3 className="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-        Start {APP_NAME}
+        Start the {APP_NAME} quiz
       </h3>
       <Card>
         <CardHeader>

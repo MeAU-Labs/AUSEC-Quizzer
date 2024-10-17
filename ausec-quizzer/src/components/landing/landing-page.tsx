@@ -35,13 +35,13 @@ export default function LandingPage() {
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
+    transition: { duration: 0.8 },
   };
 
   const staggerChildren = {
     animate: {
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.3,
       },
     },
   };
@@ -49,7 +49,7 @@ export default function LandingPage() {
   const fadeInFromLeft = {
     initial: { opacity: 0, x: -20 },
     animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.5 },
+    transition: { duration: 0.1 },
   };
 
   return (
@@ -75,6 +75,14 @@ export default function LandingPage() {
             <p className="mb-6 text-2xl text-muted-foreground">
               Igniting Young Minds, Cultivating Tomorrow&apos;s Innovators
             </p>
+            <motion.button>
+              <a
+                href="/quiz"
+                className="hover:bg-primary-dark rounded-lg bg-primary px-4 py-2 font-semibold text-white"
+              >
+                Take the quiz now
+              </a>
+            </motion.button>
           </motion.div>
           <motion.div
             className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3"
