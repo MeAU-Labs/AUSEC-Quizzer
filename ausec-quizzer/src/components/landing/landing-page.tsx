@@ -119,7 +119,7 @@ export default function LandingPage() {
               variants={fadeInFromLeft}
             >
               <Sparkles className="mb-4 h-12 w-12 text-yellow-500" />
-              <h3 className="mb-2 text-xl font-semibold">Idea Hackathon</h3>
+              <h3 className="mb-2 text-xl font-semibold text-center">School Innovation and Ideation Challenge</h3>
               <p className="text-center">
                 Unleash your creativity and problem-solving skills
               </p>
@@ -173,16 +173,16 @@ export default function LandingPage() {
         </motion.section>
 
         <motion.section className="mb-12" {...fadeIn}>
-          <Card>
+          <Card className="bg-secondary text-white border-orange-500">
             <CardHeader>
-              <CardTitle>Eligibility</CardTitle>
+              <CardTitle className="text-orange-500">Eligibility</CardTitle>
               <CardDescription>
                 Who can participate in {APP_NAME}?
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="mb-4">
-                Students from State Board, Matriculation, CBSE, and ICSE/IGCSE
+                Students from State Board, Matriculation, CBSE, IB, and ICSE/IGCSE
                 schools across Tamil Nadu, from grades 8 to 12, are eligible.
               </p>
               <h4 className="mb-2 mt-4 font-semibold">
@@ -211,7 +211,7 @@ export default function LandingPage() {
             animate="animate"
           >
             <motion.div variants={fadeInFromLeft}>
-              <Card>
+              <Card className="rounded-lg bg-red-800 p-4 shadow h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Users className="mr-2 h-6 w-6" />
@@ -220,14 +220,13 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <p>
-                    Become part of the Anna University Student Entrepreneurship
-                    Club (AUSEC) Student Chapter.
+                    Become part of the Anna University Student Entrepreneurship Club (AUSEC) Student Chapter.
                   </p>
                 </CardContent>
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card>
+              <Card className="rounded-lg bg-green-800 p-4 shadow h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Briefcase className="mr-2 h-6 w-6" />
@@ -236,14 +235,13 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <p>
-                    Access to student internship opportunities and workshops
-                    from CED-AU/AUSEC.
+                    Access to student internship opportunities and workshops from CED-AU/AUSEC.
                   </p>
                 </CardContent>
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card>
+              <Card className="rounded-lg bg-blue-800 p-4 shadow h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Award className="mr-2 h-6 w-6" />
@@ -258,7 +256,7 @@ export default function LandingPage() {
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card>
+              <Card className="rounded-lg bg-purple-900 p-4 shadow h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Lightbulb className="mr-2 h-6 w-6" />
@@ -267,14 +265,13 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <p>
-                    Receive guidance from experienced mentors to develop your
-                    ideas.
+                    Receive guidance from experienced mentors to develop your ideas.
                   </p>
                 </CardContent>
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card>
+              <Card className="rounded-lg bg-yellow-700 p-4 shadow h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Rocket className="mr-2 h-6 w-6" />
@@ -283,14 +280,13 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <p>
-                    Get the opportunity to incubate your startup idea with
-                    expert support.
+                    Get the opportunity to incubate your startup idea with expert support.
                   </p>
                 </CardContent>
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card>
+              <Card className="rounded-lg bg-indigo-800 p-4 shadow h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <GraduationCap className="mr-2 h-6 w-6" />
@@ -303,7 +299,7 @@ export default function LandingPage() {
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card>
+              <Card className="rounded-lg bg-orange-700 p-4 shadow h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Building className="mr-2 h-6 w-6" />
@@ -312,8 +308,7 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <p>
-                    Gain access to valuable resources, including co-working
-                    spaces and funding opportunities.
+                    Gain access to valuable resources, including co-working spaces and funding opportunities.
                   </p>
                 </CardContent>
               </Card>

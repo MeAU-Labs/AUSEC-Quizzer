@@ -8,7 +8,7 @@ export default async function VerifyRequestPage() {
   }
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-2">
-      <h1>Please check your team email</h1>
+      <h1>Please check your team email (Might be in Spam)</h1>
       <p>A link to start the quiz has been sent to your email address.</p>
     </div>
   );
