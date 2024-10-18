@@ -22,6 +22,7 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
+import { Typewriter } from "react-simple-typewriter";
 import {
   Card,
   CardContent,
@@ -29,7 +30,11 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-import { APP_NAME, REGISTER_FORM_LINK } from "~/utils/constants";
+import {
+  APP_NAME,
+  APP_NAME_TAMIL,
+  REGISTER_FORM_LINK,
+} from "~/utils/constants";
 
 export default function LandingPage() {
   const fadeIn = {
@@ -71,7 +76,15 @@ export default function LandingPage() {
           variants={staggerChildren}
         >
           <motion.div className="mb-8 text-center" variants={fadeIn}>
-            <h2 className="mb-4 text-6xl font-bold text-primary">{APP_NAME}</h2>
+            <h2 className="mb-4 text-6xl font-bold text-primary">
+              <Typewriter
+                words={[APP_NAME, APP_NAME_TAMIL]}
+                loop={1}
+                typeSpeed={80}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </h2>
             <p className="mb-6 text-2xl text-muted-foreground">
               Igniting Young Minds, Cultivating Tomorrow&apos;s Innovators
             </p>
@@ -81,7 +94,7 @@ export default function LandingPage() {
                   href="/quiz"
                   className="hover:bg-primary-dark rounded-lg bg-primary px-4 py-2 font-semibold text-white"
                 >
-                  Take the quiz
+                  Take the Quiz
                 </a>
               </motion.button>
               <motion.button>
@@ -90,7 +103,7 @@ export default function LandingPage() {
                   target="_blank"
                   className="rounded-lg border-2 border-white bg-background px-4 py-2 font-semibold text-white"
                 >
-                  register now
+                  Register Now
                 </a>
               </motion.button>
             </div>
@@ -455,12 +468,19 @@ export default function LandingPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                <p className="mb-4">
-                    The Centre for Entrepreneurship Development (CED) at Anna University, founded in 2003, is a launchpad for student innovation, 
-                    turning ideas into successful startups. Collaborating with EDII Tamil Nadu through a unique Hub & Spoke model, CED connects 
-                    entrepreneurship cells across various institutions, from engineering to arts. Their flagship initiative, AUSEC, drives startup 
-                    culture through events like ENANTRA, which empower students with hands-on training in design thinking, innovation, and entrepreneurship. 
-                    This holistic approach has transformed graduates into dynamic entrepreneurs, creating a vibrant startup ecosystem across Tamil Nadu.
+                  <p className="mb-4">
+                    The Centre for Entrepreneurship Development (CED) at Anna
+                    University, founded in 2003, is a launchpad for student
+                    innovation, turning ideas into successful startups.
+                    Collaborating with EDII Tamil Nadu through a unique Hub &
+                    Spoke model, CED connects entrepreneurship cells across
+                    various institutions, from engineering to arts. Their
+                    flagship initiative, AUSEC, drives startup culture through
+                    events like ENANTRA, which empower students with hands-on
+                    training in design thinking, innovation, and
+                    entrepreneurship. This holistic approach has transformed
+                    graduates into dynamic entrepreneurs, creating a vibrant
+                    startup ecosystem across Tamil Nadu.
                   </p>
                 </CardContent>
               </Card>

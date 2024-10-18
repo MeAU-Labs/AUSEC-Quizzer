@@ -1,5 +1,7 @@
 export const APP_NAME = "Puthulir";
 
+export const APP_NAME_TAMIL = "புத்துளிர்";
+
 export const FEEDBACK_EMAIL = "support@ausec.com";
 
 export const REGISTER_FORM_LINK =
