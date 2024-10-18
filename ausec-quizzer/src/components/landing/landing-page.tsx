@@ -29,7 +29,7 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-import { APP_NAME } from "~/utils/constants";
+import { APP_NAME, REGISTER_FORM_LINK } from "~/utils/constants";
 
 export default function LandingPage() {
   const fadeIn = {
@@ -86,7 +86,8 @@ export default function LandingPage() {
               </motion.button>
               <motion.button>
                 <a
-                  href="/register"
+                  href={REGISTER_FORM_LINK}
+                  target="_blank"
                   className="rounded-lg border-2 border-white bg-background px-4 py-2 font-semibold text-white"
                 >
                   register now
