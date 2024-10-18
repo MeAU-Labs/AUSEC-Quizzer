@@ -56,7 +56,6 @@ export default function RegisterPage() {
               </FormItem>
             )}
           />
-
           <Button type="submit" className="w-full" disabled>
             Register now
           </Button>
