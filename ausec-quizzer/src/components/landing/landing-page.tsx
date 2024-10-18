@@ -79,7 +79,7 @@ export default function LandingPage() {
             <h2 className="mb-4 text-6xl font-bold text-primary">
               <Typewriter
                 words={[APP_NAME, APP_NAME_TAMIL]}
-                loop={1}
+                loop={-1}
                 typeSpeed={80}
                 deleteSpeed={50}
                 delaySpeed={1000}
