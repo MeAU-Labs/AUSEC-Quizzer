@@ -83,6 +83,8 @@ export default function LandingPage() {
                 typeSpeed={80}
                 deleteSpeed={50}
                 delaySpeed={1000}
+                cursor
+                cursorBlinking
               />
             </h2>
             <p className="mb-6 text-2xl text-muted-foreground">
