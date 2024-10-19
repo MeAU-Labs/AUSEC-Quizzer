@@ -21,6 +21,7 @@ import {
   School,
   Sparkles,
   Users,
+  Home
 } from "lucide-react";
 import { Typewriter } from "react-simple-typewriter";
 import {
@@ -59,7 +60,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b">
-      <header className="bg-background py-4 text-white">
+      <header className="bg-gray-600 py-4 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-md font-bold">
             Centre for Entrepreneurship Development
@@ -75,6 +76,26 @@ export default function LandingPage() {
           animate="animate"
           variants={staggerChildren}
         >
+          <div>
+            <div className="flex justify-center mb-4">
+              <div className="flex items-center space-x-4"> {/* Changed to flex and added space-x-4 */}
+                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300"> {/* Changed to rounded-lg */}
+                  <img
+                    src="https://i.imgur.com/kXHaZGh.png" 
+                    alt="First Image"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300"> {/* Changed to rounded-lg */}
+                  <img
+                    src="https://i.imgur.com/PcMxZbD.png" 
+                    alt="Second Image"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
           <motion.div className="mb-8 text-center" variants={fadeIn}>
             <h2 className="mb-4 text-6xl font-bold text-primary">
               <Typewriter
@@ -103,7 +124,7 @@ export default function LandingPage() {
                 <a
                   href={REGISTER_FORM_LINK}
                   target="_blank"
-                  className="rounded-lg border-2 border-white bg-background px-4 py-2 font-semibold text-white"
+                  className="rounded-lg border-2 border-orange bg-primary px-4 py-2 font-semibold text-white"
                 >
                   Register Now
                 </a>
@@ -148,6 +169,30 @@ export default function LandingPage() {
         </motion.section>
 
         <motion.section className="mb-12" {...fadeIn}>
+          <Card className="bg-secondary text-black border-orange-500">
+            <CardHeader>
+              <CardTitle className="text-orange-500">How to Participate?</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="list-inside list-disc">
+                <li>
+                  Register and give the online quiz.
+                </li>
+                <li>
+                  Submit your idea
+                </li>
+                <li>
+                  Idea selection within your district 
+                </li>
+                <li>
+                  State level finale at Anna University, Chennai
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </motion.section>
+
+        <motion.section className="mb-12" {...fadeIn}>
           <h3 className="mb-4 text-2xl font-semibold">Event Timeline</h3>
           <div className="flex flex-col items-start justify-between space-y-4 md:flex-row md:items-stretch md:space-x-2 md:space-y-0">
             <div className="flex-1 rounded-lg bg-secondary p-4 shadow-md">
@@ -173,7 +218,7 @@ export default function LandingPage() {
         </motion.section>
 
         <motion.section className="mb-12" {...fadeIn}>
-          <Card className="bg-secondary text-white border-orange-500">
+          <Card className="bg-secondary text-black border-orange-500">
             <CardHeader>
               <CardTitle className="text-orange-500">Eligibility</CardTitle>
               <CardDescription>
@@ -211,7 +256,7 @@ export default function LandingPage() {
             animate="animate"
           >
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-red-800 p-4 shadow h-full">
+              <Card className="rounded-lg bg-red-700 p-4 shadow h-full text-white">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Users className="mr-2 h-6 w-6" />
@@ -226,7 +271,7 @@ export default function LandingPage() {
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-green-800 p-4 shadow h-full">
+              <Card className="rounded-lg bg-green-700 p-4 shadow h-full text-white">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Briefcase className="mr-2 h-6 w-6" />
@@ -241,7 +286,7 @@ export default function LandingPage() {
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-blue-800 p-4 shadow h-full">
+              <Card className="rounded-lg bg-blue-700 p-4 shadow h-full text-white">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Award className="mr-2 h-6 w-6" />
@@ -256,7 +301,7 @@ export default function LandingPage() {
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-purple-900 p-4 shadow h-full">
+              <Card className="rounded-lg bg-purple-800 p-4 shadow h-full text-white">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Lightbulb className="mr-2 h-6 w-6" />
@@ -271,7 +316,7 @@ export default function LandingPage() {
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-yellow-700 p-4 shadow h-full">
+              <Card className="rounded-lg bg-yellow-500 p-4 shadow h-full text-white">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Rocket className="mr-2 h-6 w-6" />
@@ -286,7 +331,7 @@ export default function LandingPage() {
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-indigo-800 p-4 shadow h-full">
+              <Card className="rounded-lg bg-indigo-600 p-4 shadow h-full text-white">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <GraduationCap className="mr-2 h-6 w-6" />
@@ -299,7 +344,7 @@ export default function LandingPage() {
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-orange-700 p-4 shadow h-full">
+              <Card className="rounded-lg bg-orange-600 p-4 shadow h-full text-white">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Building className="mr-2 h-6 w-6" />
@@ -332,80 +377,80 @@ export default function LandingPage() {
                 animate="animate"
               >
                 <motion.li
-                  className="rounded-lg bg-blue-900 p-4 shadow"
+                  className="rounded-lg bg-blue-800 p-4 shadow"
                   variants={fadeInFromLeft}
                 >
-                  <h4 className="mb-2 flex items-center font-semibold">
+                  <h4 className="mb-2 flex items-center font-semibold text-white">
                     <Recycle className="mr-2 h-5 w-5 text-blue-600" />
                     Innovative Solutions for Local Problems
                   </h4>
-                  <p>
+                  <p className= "text-white">
                     Focus on solving local community issues such as waste
                     management, water conservation, sustainable agriculture,
                     etc.
                   </p>
                 </motion.li>
                 <motion.li
-                  className="rounded-lg bg-green-900 p-4 shadow"
+                  className="rounded-lg bg-green-700 p-4 shadow"
                   variants={fadeInFromLeft}
                 >
-                  <h4 className="mb-2 flex items-center font-semibold">
+                  <h4 className="mb-2 flex items-center font-semibold text-white">
                     <Cpu className="mr-2 h-5 w-5 text-green-600" />
                     Tech & Innovation Challenge
                   </h4>
-                  <p>
+                  <p className= "text-white">
                     Develop tech-based solutions, apps, or products tied to
                     current trends like AI, machine learning, or robotics.
                   </p>
                 </motion.li>
                 <motion.li
-                  className="rounded-lg bg-yellow-900 p-4 shadow"
+                  className="rounded-lg bg-yellow-600 p-4 shadow"
                   variants={fadeInFromLeft}
                 >
-                  <h4 className="mb-2 flex items-center font-semibold">
-                    <Leaf className="mr-2 h-5 w-5 text-yellow-600" />
+                  <h4 className="mb-2 flex items-center font-semibold text-white">
+                    <Leaf className="mr-2 h-5 w-5 text-yellow-500" />
                     Sustainability Startup Challenge
                   </h4>
-                  <p>
+                  <p className= "text-white">
                     Create startups focused on sustainability, eco-friendly
                     solutions, and green technology.
                   </p>
                 </motion.li>
                 <motion.li
-                  className="rounded-lg bg-red-900 p-4 shadow"
+                  className="rounded-lg bg-red-700 p-4 shadow"
                   variants={fadeInFromLeft}
                 >
-                  <h4 className="mb-2 flex items-center font-semibold">
+                  <h4 className="mb-2 flex items-center font-semibold text-white">
                     <Atom className="mr-2 h-5 w-5 text-red-600" />
                     STEM-Based Business Challenge
                   </h4>
-                  <p>
+                  <p className= "text-white">
                     Build innovative startups in sectors like health tech,
                     edtech, or agri-tech using STEM principles.
                   </p>
                 </motion.li>
                 <motion.li
-                  className="rounded-lg bg-purple-900 p-4 shadow"
+                  className="rounded-lg bg-purple-800 p-4 shadow"
                   variants={fadeInFromLeft}
                 >
-                  <h4 className="mb-2 flex items-center font-semibold">
+                  <h4 className="mb-2 flex items-center font-semibold text-white">
                     <Palette className="mr-2 h-5 w-5 text-purple-600" />
                     Creative Arts and Media Startups
                   </h4>
-                  <p>
+                  <p className= "text-white">
                     Develop startups in fields like digital marketing, design
                     services, or content creation.
                   </p>
                 </motion.li>
                 <motion.li
-                  className="rounded-lg bg-indigo-900 p-4 shadow"
+                  className="rounded-lg bg-orange-500 p-4 shadow"
                   variants={fadeInFromLeft}
                 >
-                  <h4 className="mb-2 flex items-center font-semibold">
-                    <Heart className="mr-2 h-5 w-5 text-indigo-600" />
+                  <h4 className="mb-2 flex items-center font-semibold text-white">
+                    <Heart className="mr-2 h-5 w-5 text-orange-600" />
                     Health and Wellness Startup Competition
                   </h4>
-                  <p>
+                  <p className= "text-white">
                     Create apps, services, or products aimed at promoting
                     healthier lifestyles.
                   </p>
@@ -461,7 +506,29 @@ export default function LandingPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <School className="mr-2 h-6 w-6 text-green-600" />
-                    About CED
+                        <a 
+                          href="http://auced.com/"
+                          className="inline-flex items-center font-medium text-black hover:underline dark:text-black"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          About CED
+                          <svg
+                            className="w-4 h-4 ml-2 text-blue-600 dark:text-blue-500"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 14 10"
+                          >
+                            <path
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M1 5h12m0 0L9 1m4 4L9 9"
+                            />
+                          </svg>
+                        </a>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -484,13 +551,63 @@ export default function LandingPage() {
             </motion.div>
           </div>
         </motion.section>
+        <motion.div variants={fadeInFromLeft}>
+          <Card className="h-full mt-6">
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Home className="mr-2 h-6 w-6 text-red-600" />
+                District Venue Partner
+              </CardTitle>
+            </CardHeader>
+            <CardContent> {/* Reduced bottom padding */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Left Half - Text */}
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">
+                    Inviting Schools & Colleges to grab the opportunity to serve as District Venue Partner
+                  </h3>
+                  <p className="mb-4">
+                   Cost to host: ₹50,000 for schools and ₹1,00,000 for colleges.
+                  </p>
+                  <h4 className="text-md font-semibold mb-2">Criteria:</h4>
+                  <ul className="list-disc list-inside mb-4">
+                    <li>Provision of Halls</li>
+                    <li>Canteen Facilities</li>
+                    <li>Other basic amenities</li>
+                    <li>Hospitality for Organising Team of up to 5 members</li>
+                  </ul>
+                  <p className="font-bold">Nov 6, 7, 8, 2024 - District level selection will take place.</p>
+                  <br></br>
+                  <p className="mb-4">
+                    For Queries, please write to <a href="mailto:cedau.outreach@gmail.com" className="text-blue-600">cedau.outreach@gmail.com</a>
+                  </p>
+                </div>
+
+                {/* Right Half - QR Code Image */}
+                <div className="flex items-start justify-center mt-[-2rem]">
+                  <img
+                    src="https://i.imgur.com/kajcAZP.jpeg" // Replace with actual QR code link
+                    alt="QR Code"
+                    className="w-3/4 h-auto max-h-[80%] object-contain"
+                  />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </main>
 
-      <footer className="mt-8 bg-secondary py-4 text-white">
+      <footer className="mt-8 bg-gray-600 py-4 text-white">
         <div className="container mx-auto px-4 text-center text-xs">
           <p>
             &copy; 2024 Centre for Entrepreneurship Development, Anna
-            University. All rights reserved.
+            University. All rights reserved. <br></br>
+            <a 
+              href="https://github.com/MeAU-Labs?view_as=public"
+              className="inline-flex items-center font-medium text-white hover:underline dark:text-white"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Developed by MeAU-Labs</a>
           </p>
         </div>
       </footer>
