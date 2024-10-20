@@ -1,8 +1,9 @@
+import { render } from "@react-email/components";
 import ScoreEmail from "emails/score-email";
 import { z } from "zod";
 import { env } from "~/env";
 import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
-import { resendClient } from "~/server/email";
+import { transporter } from "~/server/email";
 import { answerSchema, quizQuestionSchema } from "~/server/schemas/quiz";
 
 export const quizRouter = createTRPCRouter({
@@ -36,12 +37,15 @@ export const quizRouter = createTRPCRouter({
         data: { score: score, hasCompletedQuiz: true },
       });
 
-      // send email with quiz score
-      await resendClient.emails.send({
+      const emailHtml = await render(
+        ScoreEmail({ score: score, totalScore: allQuestions.length }),
+      );
+
+      await transporter.sendMail({
         from: env.EMAIL_FROM,
         to: ctx.session.user.email,
         subject: "AUSEC Quiz Score",
-        react: ScoreEmail({ score: score, totalScore: allQuestions.length }),
+        html: emailHtml,
       });
     }),
 });

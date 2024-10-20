@@ -1,4 +1,12 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { env } from "~/env";
 
-export const resendClient = new Resend(env.EMAIL_SERVER_PASSWORD);
+export const transporter = nodemailer.createTransport({
+  host: env.EMAIL_SERVER_HOST,
+  port: env.EMAIL_SERVER_PORT,
+  secure: true,
+  auth: {
+    user: env.EMAIL_SERVER_USER,
+    pass: env.EMAIL_SERVER_PASSWORD,
+  },
+});
