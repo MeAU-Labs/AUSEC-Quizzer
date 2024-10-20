@@ -1,4 +1,6 @@
-# AUSEC Quizzer
+# AUSEC Quizzer- Puthulir
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f9bc2b2a-f73b-4679-9a51-4eaa73de9e41/deploy-status)](https://app.netlify.com/sites/puthulir/deploys)
 
 AUSEC Quizzer is a web application built for the Anna University Entrepreneurship Club. It is designed to host quizzes organized by the club. This application is built using **Next.js**, **TailwindCSS**, **shadcn/ui**, **Prisma**, **React Hook Form**, and **Resend** for handling emails.
 
