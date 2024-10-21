@@ -12,6 +12,7 @@ import {
   Cpu,
   GraduationCap,
   Heart,
+  Home,
   Leaf,
   Lightbulb,
   MapPin,
@@ -21,7 +22,6 @@ import {
   School,
   Sparkles,
   Users,
-  Home
 } from "lucide-react";
 import { Typewriter } from "react-simple-typewriter";
 import {
@@ -77,20 +77,26 @@ export default function LandingPage() {
           variants={staggerChildren}
         >
           <div>
-            <div className="flex justify-center mb-4">
-              <div className="flex items-center space-x-4"> {/* Changed to flex and added space-x-4 */}
-                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300"> {/* Changed to rounded-lg */}
+            <div className="mb-4 flex justify-center">
+              <div className="flex items-center space-x-4">
+                {" "}
+                {/* Changed to flex and added space-x-4 */}
+                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300">
+                  {" "}
+                  {/* Changed to rounded-lg */}
                   <img
-                    src="https://i.imgur.com/kXHaZGh.png" 
+                    src="https://i.imgur.com/kXHaZGh.png"
                     alt="First Image"
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300"> {/* Changed to rounded-lg */}
+                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300">
+                  {" "}
+                  {/* Changed to rounded-lg */}
                   <img
-                    src="https://i.imgur.com/PcMxZbD.png" 
+                    src="https://i.imgur.com/PcMxZbD.png"
                     alt="Second Image"
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </div>
               </div>
@@ -124,7 +130,7 @@ export default function LandingPage() {
                 <a
                   href={REGISTER_FORM_LINK}
                   target="_blank"
-                  className="rounded-lg border-2 border-orange bg-primary px-4 py-2 font-semibold text-white"
+                  className="border-orange rounded-lg border-2 bg-primary px-4 py-2 font-semibold text-white"
                 >
                   Register Now
                 </a>
@@ -140,7 +146,9 @@ export default function LandingPage() {
               variants={fadeInFromLeft}
             >
               <Sparkles className="mb-4 h-12 w-12 text-yellow-500" />
-              <h3 className="mb-2 text-xl font-semibold text-center">School Innovation and Ideation Challenge</h3>
+              <h3 className="mb-2 text-center text-xl font-semibold">
+                School Innovation and Ideation Challenge
+              </h3>
               <p className="text-center">
                 Unleash your creativity and problem-solving skills
               </p>
@@ -169,24 +177,18 @@ export default function LandingPage() {
         </motion.section>
 
         <motion.section className="mb-12" {...fadeIn}>
-          <Card className="bg-secondary text-black border-orange-500">
+          <Card className="border-orange-500 bg-secondary text-black">
             <CardHeader>
-              <CardTitle className="text-orange-500">How to Participate?</CardTitle>
+              <CardTitle className="text-orange-500">
+                How to Participate?
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="list-inside list-disc">
-                <li>
-                  Register and give the online quiz.
-                </li>
-                <li>
-                  Submit your idea
-                </li>
-                <li>
-                  Idea selection within your district 
-                </li>
-                <li>
-                  State level finale at Anna University, Chennai
-                </li>
+                <li>Register and give the online quiz.</li>
+                <li>Submit your idea</li>
+                <li>Idea selection within your district</li>
+                <li>State level finale at Anna University, Chennai</li>
               </ul>
             </CardContent>
           </Card>
@@ -218,7 +220,7 @@ export default function LandingPage() {
         </motion.section>
 
         <motion.section className="mb-12" {...fadeIn}>
-          <Card className="bg-secondary text-black border-orange-500">
+          <Card className="border-orange-500 bg-secondary text-black">
             <CardHeader>
               <CardTitle className="text-orange-500">Eligibility</CardTitle>
               <CardDescription>
@@ -227,8 +229,9 @@ export default function LandingPage() {
             </CardHeader>
             <CardContent>
               <p className="mb-4">
-                Students from State Board, Matriculation, CBSE, IB, and ICSE/IGCSE
-                schools across Tamil Nadu, from grades 8 to 12, are eligible.
+                Students from State Board, Matriculation, CBSE, IB, and
+                ICSE/IGCSE schools across Tamil Nadu, from grades 8 to 12, are
+                eligible.
               </p>
               <h4 className="mb-2 mt-4 font-semibold">
                 Team Composition & Registration
@@ -256,7 +259,7 @@ export default function LandingPage() {
             animate="animate"
           >
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-red-700 p-4 shadow h-full text-white">
+              <Card className="h-full rounded-lg bg-red-700 p-4 text-white shadow">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Users className="mr-2 h-6 w-6" />
@@ -265,13 +268,14 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <p>
-                    Become part of the Anna University Student Entrepreneurship Club (AUSEC) Student Chapter.
+                    Become part of the Anna University Student Entrepreneurship
+                    Club (AUSEC) Student Chapter.
                   </p>
                 </CardContent>
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-green-700 p-4 shadow h-full text-white">
+              <Card className="h-full rounded-lg bg-green-700 p-4 text-white shadow">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Briefcase className="mr-2 h-6 w-6" />
@@ -280,13 +284,14 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <p>
-                    Access to student internship opportunities and workshops from CED-AU/AUSEC.
+                    Access to student internship opportunities and workshops
+                    from CED-AU/AUSEC.
                   </p>
                 </CardContent>
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-blue-700 p-4 shadow h-full text-white">
+              <Card className="h-full rounded-lg bg-blue-700 p-4 text-white shadow">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Award className="mr-2 h-6 w-6" />
@@ -301,7 +306,7 @@ export default function LandingPage() {
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-purple-800 p-4 shadow h-full text-white">
+              <Card className="h-full rounded-lg bg-purple-800 p-4 text-white shadow">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Lightbulb className="mr-2 h-6 w-6" />
@@ -310,13 +315,14 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <p>
-                    Receive guidance from experienced mentors to develop your ideas.
+                    Receive guidance from experienced mentors to develop your
+                    ideas.
                   </p>
                 </CardContent>
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-yellow-500 p-4 shadow h-full text-white">
+              <Card className="h-full rounded-lg bg-yellow-500 p-4 text-white shadow">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Rocket className="mr-2 h-6 w-6" />
@@ -325,13 +331,14 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <p>
-                    Get the opportunity to incubate your startup idea with expert support.
+                    Get the opportunity to incubate your startup idea with
+                    expert support.
                   </p>
                 </CardContent>
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-indigo-600 p-4 shadow h-full text-white">
+              <Card className="h-full rounded-lg bg-indigo-600 p-4 text-white shadow">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <GraduationCap className="mr-2 h-6 w-6" />
@@ -344,7 +351,7 @@ export default function LandingPage() {
               </Card>
             </motion.div>
             <motion.div variants={fadeInFromLeft}>
-              <Card className="rounded-lg bg-orange-600 p-4 shadow h-full text-white">
+              <Card className="h-full rounded-lg bg-orange-600 p-4 text-white shadow">
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Building className="mr-2 h-6 w-6" />
@@ -353,7 +360,8 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <p>
-                    Gain access to valuable resources, including co-working spaces and funding opportunities.
+                    Gain access to valuable resources, including co-working
+                    spaces and funding opportunities.
                   </p>
                 </CardContent>
               </Card>
@@ -384,7 +392,7 @@ export default function LandingPage() {
                     <Recycle className="mr-2 h-5 w-5 text-blue-600" />
                     Innovative Solutions for Local Problems
                   </h4>
-                  <p className= "text-white">
+                  <p className="text-white">
                     Focus on solving local community issues such as waste
                     management, water conservation, sustainable agriculture,
                     etc.
@@ -398,7 +406,7 @@ export default function LandingPage() {
                     <Cpu className="mr-2 h-5 w-5 text-green-600" />
                     Tech & Innovation Challenge
                   </h4>
-                  <p className= "text-white">
+                  <p className="text-white">
                     Develop tech-based solutions, apps, or products tied to
                     current trends like AI, machine learning, or robotics.
                   </p>
@@ -411,7 +419,7 @@ export default function LandingPage() {
                     <Leaf className="mr-2 h-5 w-5 text-yellow-500" />
                     Sustainability Startup Challenge
                   </h4>
-                  <p className= "text-white">
+                  <p className="text-white">
                     Create startups focused on sustainability, eco-friendly
                     solutions, and green technology.
                   </p>
@@ -424,7 +432,7 @@ export default function LandingPage() {
                     <Atom className="mr-2 h-5 w-5 text-red-600" />
                     STEM-Based Business Challenge
                   </h4>
-                  <p className= "text-white">
+                  <p className="text-white">
                     Build innovative startups in sectors like health tech,
                     edtech, or agri-tech using STEM principles.
                   </p>
@@ -437,7 +445,7 @@ export default function LandingPage() {
                     <Palette className="mr-2 h-5 w-5 text-purple-600" />
                     Creative Arts and Media Startups
                   </h4>
-                  <p className= "text-white">
+                  <p className="text-white">
                     Develop startups in fields like digital marketing, design
                     services, or content creation.
                   </p>
@@ -450,7 +458,7 @@ export default function LandingPage() {
                     <Heart className="mr-2 h-5 w-5 text-orange-600" />
                     Health and Wellness Startup Competition
                   </h4>
-                  <p className= "text-white">
+                  <p className="text-white">
                     Create apps, services, or products aimed at promoting
                     healthier lifestyles.
                   </p>
@@ -506,29 +514,29 @@ export default function LandingPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <School className="mr-2 h-6 w-6 text-green-600" />
-                        <a 
-                          href="http://auced.com/"
-                          className="inline-flex items-center font-medium text-black hover:underline dark:text-black"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          About CED
-                          <svg
-                            className="w-4 h-4 ml-2 text-blue-600 dark:text-blue-500"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 14 10"
-                          >
-                            <path
-                              stroke="currentColor"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M1 5h12m0 0L9 1m4 4L9 9"
-                            />
-                          </svg>
-                        </a>
+                    <a
+                      href="http://auced.com/"
+                      className="inline-flex items-center font-medium text-black hover:underline dark:text-black"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      About CED
+                      <svg
+                        className="ml-2 h-4 w-4 text-blue-600 dark:text-blue-500"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 10"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M1 5h12m0 0L9 1m4 4L9 9"
+                        />
+                      </svg>
+                    </a>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -552,43 +560,56 @@ export default function LandingPage() {
           </div>
         </motion.section>
         <motion.div variants={fadeInFromLeft}>
-          <Card className="h-full mt-6">
+          <Card className="mt-6 h-full">
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Home className="mr-2 h-6 w-6 text-red-600" />
                 District Venue Partner
               </CardTitle>
             </CardHeader>
-            <CardContent> {/* Reduced bottom padding */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <CardContent>
+              {" "}
+              {/* Reduced bottom padding */}
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 {/* Left Half - Text */}
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">
-                    Inviting Schools & Colleges to grab the opportunity to serve as District Venue Partner
+                  <h3 className="mb-2 text-lg font-semibold">
+                    Inviting Schools & Colleges to grab the opportunity to serve
+                    as District Venue Partner
                   </h3>
                   <p className="mb-4">
-                   Cost to host: ₹50,000 for schools and ₹1,00,000 for colleges.
+                    Cost to host: ₹50,000 for schools and ₹1,00,000 for
+                    colleges.
                   </p>
-                  <h4 className="text-md font-semibold mb-2">Criteria:</h4>
-                  <ul className="list-disc list-inside mb-4">
+                  <h4 className="text-md mb-2 font-semibold">Criteria:</h4>
+                  <ul className="mb-4 list-inside list-disc">
                     <li>Provision of Halls</li>
                     <li>Canteen Facilities</li>
                     <li>Other basic amenities</li>
                     <li>Hospitality for Organising Team of up to 5 members</li>
                   </ul>
-                  <p className="font-bold">Nov 6, 7, 8, 2024 - District level selection will take place.</p>
+                  <p className="font-bold">
+                    Nov 6, 7, 8, 2024 - District level selection will take
+                    place.
+                  </p>
                   <br></br>
                   <p className="mb-4">
-                    For Queries, please write to <a href="mailto:cedau.outreach@gmail.com" className="text-blue-600">cedau.outreach@gmail.com</a>
+                    For Queries, please write to{" "}
+                    <a
+                      href="mailto:cedau.outreach@gmail.com"
+                      className="text-blue-600"
+                    >
+                      cedau.outreach@gmail.com
+                    </a>
                   </p>
                 </div>
 
                 {/* Right Half - QR Code Image */}
-                <div className="flex items-start justify-center mt-[-2rem]">
+                <div className="mt-[-2rem] flex items-start justify-center">
                   <img
                     src="https://i.imgur.com/kajcAZP.jpeg" // Replace with actual QR code link
                     alt="QR Code"
-                    className="w-3/4 h-auto max-h-[80%] object-contain"
+                    className="h-auto max-h-[80%] w-3/4 object-contain"
                   />
                 </div>
               </div>
@@ -602,12 +623,14 @@ export default function LandingPage() {
           <p>
             &copy; 2024 Centre for Entrepreneurship Development, Anna
             University. All rights reserved. <br></br>
-            <a 
-              href="https://github.com/MeAU-Labs?view_as=public"
+            <a
+              href="https://github.com/Primer-Labs?view_as=public"
               className="inline-flex items-center font-medium text-white hover:underline dark:text-white"
               target="_blank"
               rel="noopener noreferrer"
-              >Developed by MeAU-Labs</a>
+            >
+              Developed by Primer-Labs
+            </a>
           </p>
         </div>
       </footer>
