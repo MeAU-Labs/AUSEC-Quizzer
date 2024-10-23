@@ -8,6 +8,7 @@ import {
   Briefcase,
   Building,
   Calendar,
+  ChevronDown,
   ChevronRight,
   Cpu,
   GraduationCap,
@@ -20,9 +21,11 @@ import {
   Recycle,
   Rocket,
   School,
+  ShieldQuestion,
   Sparkles,
-  Users,
+  Users
 } from "lucide-react";
+import { useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import {
   Card,
@@ -50,6 +53,11 @@ export default function LandingPage() {
         staggerChildren: 0.3,
       },
     },
+  };
+
+  const [showAll, setShowAll] = useState(false);
+  const handleToggle = () => {
+    setShowAll((prev) => !prev);
   };
 
   const fadeInFromLeft = {
@@ -616,6 +624,96 @@ export default function LandingPage() {
             </CardContent>
           </Card>
         </motion.div>
+
+        <motion.section className="mb-12 pt-5" {...fadeIn}>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-1">
+            <motion.div variants={fadeInFromLeft}>
+              <Card className="h-full">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <ShieldQuestion className="mr-2 h-6 w-6 text-red-600" />
+                    Frequently Asked Questions
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-5">
+                  {/* FAQ Questions */}
+                  <div className="mb-4">
+                    <strong>1. Who can participate in the Puthulir – TN Innovation and Ideation Challenge?</strong>
+                    <p>Students from Tamil Nadu schools in classes 8th to 12th are eligible to participate.</p>
+                  </div>
+                  <div className="mb-4">
+                    <strong>2. How many students can form a team?</strong>
+                    <p>A team can have a maximum of 3 students.</p>
+                  </div>
+                  <div className={showAll ? "mb-4" : "mb-0"}>
+                    <strong>3. Is there a registration fee?</strong>
+                    <p>There are no registration charges for Government and Government Aided Schools.</p>
+                  </div>
+                  {showAll && (
+                    <>
+                      <div className="mb-4">
+                        <strong>4. How do we register for the challenge?</strong>
+                        <p>Teams can register using the link <a href="https://www.puthulir.com/register" className="text-blue-600 underline">www.puthulir.com/register</a>.</p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>5. What happens after registration?</strong>
+                        <p>After registering, teams will attend a quiz on innovation and startups.</p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>6. What information do we receive after the quiz?</strong>
+                        <p>Teams will receive an email with their Team ID, a problem template, a problem submission link, and necessary instructions for submitting the problem.</p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>7. What is the next step after submitting the problem?</strong>
+                        <p>Upon selection, teams will receive an email with an idea template and venue details to attend the district-level competition.</p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>8. What happens at the district-level competition?</strong>
+                        <p>Selected teams will present their problem and solution (idea) in front of a jury panel at their respective venue.</p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>9. What happens if our team is selected at the district level?</strong>
+                        <p>Selected teams will receive an email to attend an online business mentoring session.</p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>10. What is the final stage of the competition?</strong>
+                        <p>Selected teams will attend the finale at Anna University, Chennai, and present their innovative ideas as a visual prototype/model. An actual prototype/MVP is not needed.</p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>11. Are there any awards for the best ideas?</strong>
+                        <p>Yes, the best innovative ideas will receive cash awards and prototyping opportunities from the Centre for Entrepreneurship Development (CED), Anna University.</p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>12. Is the mentoring session mandatory?</strong>
+                        <p>Yes, the business mentoring session is mandatory for the selected teams as it helps them refine their ideas and presentation.</p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>13. What should we prepare for the finale presentation?</strong>
+                        <p>Teams should prepare a visual prototype/model to present their innovative ideas. An actual prototype or Minimum Viable Product (MVP) is not required.</p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>14. Who organizes the Puthulir – TN Innovation and Ideation Challenge?</strong>
+                        <p>The challenge is organized by the Centre for Entrepreneurship Development, Anna University.</p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>15. Can students from private schools participate in the challenge?</strong>
+                        <p>Yes, students from private schools can participate, but registration charges may apply.</p>
+                      </div>
+                    </>
+                  )}
+                </CardContent>
+                <div className="mt-4 flex justify-center pb-5">
+                  <button className="flex items-center text-red-600 hover:text-gray-800 transition-colors" onClick={handleToggle}>
+                    <span className="flex items-center">
+                      <ChevronDown className="mr-2 h-6 w-6 text-red-600 transition-transform duration-300" />
+                      {showAll ? "Show less" : "Show more"}
+                    </span>
+                  </button>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+        </motion.section>
       </main>
 
       <footer className="mt-8 bg-gray-600 py-4 text-white">
@@ -637,3 +735,4 @@ export default function LandingPage() {
     </div>
   );
 }
+
