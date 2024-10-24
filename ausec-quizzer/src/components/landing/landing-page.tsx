@@ -66,6 +66,10 @@ export default function LandingPage() {
     transition: { duration: 0.1 },
   };
 
+  const openPdf = () => {
+    window.open("/themes.pdf", "_blank");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b">
       <header className="bg-gray-600 py-4 text-white">
@@ -145,6 +149,19 @@ export default function LandingPage() {
               </motion.button>
             </div>
           </motion.div>
+          <motion.section
+            className="mb-12 flex items-center justify-center"
+            {...fadeIn}
+          >
+            <Card>
+              <button
+                className="rounded-lg bg-orange-500 p-2 text-white"
+                onClick={openPdf}
+              >
+                <strong>Themes and Deadlines</strong>
+              </button>
+            </Card>
+          </motion.section>
           <motion.div
             className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3"
             variants={staggerChildren}
