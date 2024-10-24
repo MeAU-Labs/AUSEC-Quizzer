@@ -205,7 +205,7 @@ export default function LandingPage() {
           className="mb-12 flex items-center justify-center"
           {...fadeIn}
         >
-          <Card className="border-orange-500">
+          <Card>
             <CardHeader>
               <CardTitle className="text-center text-orange-500">
                 Event Flowchart
