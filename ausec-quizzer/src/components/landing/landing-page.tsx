@@ -23,7 +23,7 @@ import {
   School,
   ShieldQuestion,
   Sparkles,
-  Users
+  Users,
 } from "lucide-react";
 import { useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
@@ -184,20 +184,22 @@ export default function LandingPage() {
           </motion.div>
         </motion.section>
 
-        <motion.section className="mb-12" {...fadeIn}>
-          <Card className="border-orange-500 bg-secondary text-black">
+        <motion.section
+          className="mb-12 flex items-center justify-center"
+          {...fadeIn}
+        >
+          <Card className="border-orange-500">
             <CardHeader>
-              <CardTitle className="text-orange-500">
-                How to Participate?
+              <CardTitle className="text-center text-orange-500">
+                Event Flowchart
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <ul className="list-inside list-disc">
-                <li>Register and give the online quiz.</li>
-                <li>Submit your idea</li>
-                <li>Idea selection within your district</li>
-                <li>State level finale at Anna University, Chennai</li>
-              </ul>
+            <CardContent className="flex h-full items-center justify-center">
+              <img
+                src="/flowchart.png"
+                alt="Event Flowchart"
+                className="h-[90%] w-[90%] object-contain"
+              />
             </CardContent>
           </Card>
         </motion.section>
@@ -638,8 +640,14 @@ export default function LandingPage() {
                 <CardContent className="pt-5">
                   {/* FAQ Questions */}
                   <div className="mb-4">
-                    <strong>1. Who can participate in the Puthulir – TN Innovation and Ideation Challenge?</strong>
-                    <p>Students from Tamil Nadu schools in classes 8th to 12th are eligible to participate.</p>
+                    <strong>
+                      1. Who can participate in the Puthulir – TN Innovation and
+                      Ideation Challenge?
+                    </strong>
+                    <p>
+                      Students from Tamil Nadu schools in classes 8th to 12th
+                      are eligible to participate.
+                    </p>
                   </div>
                   <div className="mb-4">
                     <strong>2. How many students can form a team?</strong>
@@ -647,63 +655,144 @@ export default function LandingPage() {
                   </div>
                   <div className={showAll ? "mb-4" : "mb-0"}>
                     <strong>3. Is there a registration fee?</strong>
-                    <p>There are no registration charges for Government and Government Aided Schools.</p>
+                    <p>
+                      There are no registration charges for Government and
+                      Government Aided Schools.
+                    </p>
                   </div>
                   {showAll && (
                     <>
                       <div className="mb-4">
-                        <strong>4. How do we register for the challenge?</strong>
-                        <p>Teams can register using the link <a href="https://www.puthulir.com/register" className="text-blue-600 underline">www.puthulir.com/register</a>.</p>
+                        <strong>
+                          4. How do we register for the challenge?
+                        </strong>
+                        <p>
+                          Teams can register using the link{" "}
+                          <a
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSfUD8icLkB3UUhivl0mEAmTcYbREjhegYxPo1fU1eLvI-EQjQ/viewform"
+                            className="bold text-blue-600"
+                          >
+                            Registration Form
+                          </a>
+                          .
+                        </p>
                       </div>
                       <div className="mb-4">
                         <strong>5. What happens after registration?</strong>
-                        <p>After registering, teams will attend a quiz on innovation and startups.</p>
+                        <p>
+                          After registering, teams will attend a quiz on
+                          innovation and startups.
+                        </p>
                       </div>
                       <div className="mb-4">
-                        <strong>6. What information do we receive after the quiz?</strong>
-                        <p>Teams will receive an email with their Team ID, a problem template, a problem submission link, and necessary instructions for submitting the problem.</p>
+                        <strong>
+                          6. What information do we receive after the quiz?
+                        </strong>
+                        <p>
+                          Teams will receive an email with their Team ID, a
+                          problem template, a problem submission link, and
+                          necessary instructions for submitting the problem.
+                        </p>
                       </div>
                       <div className="mb-4">
-                        <strong>7. What is the next step after submitting the problem?</strong>
-                        <p>Upon selection, teams will receive an email with an idea template and venue details to attend the district-level competition.</p>
+                        <strong>
+                          7. What is the next step after submitting the problem?
+                        </strong>
+                        <p>
+                          Upon selection, teams will receive an email with an
+                          idea template and venue details to attend the
+                          district-level competition.
+                        </p>
                       </div>
                       <div className="mb-4">
-                        <strong>8. What happens at the district-level competition?</strong>
-                        <p>Selected teams will present their problem and solution (idea) in front of a jury panel at their respective venue.</p>
+                        <strong>
+                          8. What happens at the district-level competition?
+                        </strong>
+                        <p>
+                          Selected teams will present their problem and solution
+                          (idea) in front of a jury panel at their respective
+                          venue.
+                        </p>
                       </div>
                       <div className="mb-4">
-                        <strong>9. What happens if our team is selected at the district level?</strong>
-                        <p>Selected teams will receive an email to attend an online business mentoring session.</p>
+                        <strong>
+                          9. What happens if our team is selected at the
+                          district level?
+                        </strong>
+                        <p>
+                          Selected teams will receive an email to attend an
+                          online business mentoring session.
+                        </p>
                       </div>
                       <div className="mb-4">
-                        <strong>10. What is the final stage of the competition?</strong>
-                        <p>Selected teams will attend the finale at Anna University, Chennai, and present their innovative ideas as a visual prototype/model. An actual prototype/MVP is not needed.</p>
+                        <strong>
+                          10. What is the final stage of the competition?
+                        </strong>
+                        <p>
+                          Selected teams will attend the finale at Anna
+                          University, Chennai, and present their innovative
+                          ideas as a visual prototype/model. An actual
+                          prototype/MVP is not needed.
+                        </p>
                       </div>
                       <div className="mb-4">
-                        <strong>11. Are there any awards for the best ideas?</strong>
-                        <p>Yes, the best innovative ideas will receive cash awards and prototyping opportunities from the Centre for Entrepreneurship Development (CED), Anna University.</p>
+                        <strong>
+                          11. Are there any awards for the best ideas?
+                        </strong>
+                        <p>
+                          Yes, the best innovative ideas will receive cash
+                          awards and prototyping opportunities from the Centre
+                          for Entrepreneurship Development (CED), Anna
+                          University.
+                        </p>
                       </div>
                       <div className="mb-4">
                         <strong>12. Is the mentoring session mandatory?</strong>
-                        <p>Yes, the business mentoring session is mandatory for the selected teams as it helps them refine their ideas and presentation.</p>
+                        <p>
+                          Yes, the business mentoring session is mandatory for
+                          the selected teams as it helps them refine their ideas
+                          and presentation.
+                        </p>
                       </div>
                       <div className="mb-4">
-                        <strong>13. What should we prepare for the finale presentation?</strong>
-                        <p>Teams should prepare a visual prototype/model to present their innovative ideas. An actual prototype or Minimum Viable Product (MVP) is not required.</p>
+                        <strong>
+                          13. What should we prepare for the finale
+                          presentation?
+                        </strong>
+                        <p>
+                          Teams should prepare a visual prototype/model to
+                          present their innovative ideas. An actual prototype or
+                          Minimum Viable Product (MVP) is not required.
+                        </p>
                       </div>
                       <div className="mb-4">
-                        <strong>14. Who organizes the Puthulir – TN Innovation and Ideation Challenge?</strong>
-                        <p>The challenge is organized by the Centre for Entrepreneurship Development, Anna University.</p>
+                        <strong>
+                          14. Who organizes the Puthulir – TN Innovation and
+                          Ideation Challenge?
+                        </strong>
+                        <p>
+                          The challenge is organized by the Centre for
+                          Entrepreneurship Development, Anna University.
+                        </p>
                       </div>
                       <div className="mb-4">
-                        <strong>15. Can students from private schools participate in the challenge?</strong>
-                        <p>Yes, students from private schools can participate, but registration charges may apply.</p>
+                        <strong>
+                          15. Can students from private schools participate in
+                          the challenge?
+                        </strong>
+                        <p>
+                          Yes, students from private schools can participate,
+                          but registration charges may apply.
+                        </p>
                       </div>
                     </>
                   )}
                 </CardContent>
                 <div className="mt-4 flex justify-center pb-5">
-                  <button className="flex items-center text-red-600 hover:text-gray-800 transition-colors" onClick={handleToggle}>
+                  <button
+                    className="flex items-center text-red-600 transition-colors hover:text-gray-800"
+                    onClick={handleToggle}
+                  >
                     <span className="flex items-center">
                       <ChevronDown className="mr-2 h-6 w-6 text-red-600 transition-transform duration-300" />
                       {showAll ? "Show less" : "Show more"}
@@ -735,4 +824,3 @@ export default function LandingPage() {
     </div>
   );
 }
-
