@@ -8,7 +8,9 @@ import {
 } from "~/components/ui/card";
 import { APP_NAME } from "~/utils/constants";
 
+import { getCsrfToken } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
+import { use } from "react";
 
 const errors = {
   Signin: "Try signing in with a different account.",
@@ -25,12 +27,10 @@ const errors = {
   default: "Unable to sign in.",
 };
 
-export default function SignInPage({
-  csrfToken,
-}: {
-  csrfToken: string | undefined;
-}) {
+export default function SignInPage() {
   const searchParams = useSearchParams();
+
+  const csrfToken = use(getCsrfToken()); // get csrf token client side
 
   const error = searchParams.get("error");
 
