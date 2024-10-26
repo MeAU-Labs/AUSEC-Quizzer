@@ -20,7 +20,8 @@ import { Input } from "../ui/input";
 
 const signinSchema = z.object({
   email: z
-    .string({ required_error: "Please enter your email address." })
+    .string()
+    .min(1, { message: "Please enter your email address." })
     .email({ message: "Please enter a valid email address." }),
   csrfToken: z.string(),
   callbackUrl: z.optional(z.string()),
@@ -39,6 +40,7 @@ export default function LoginForm({
   const form = useForm<z.infer<typeof signinSchema>>({
     resolver: zodResolver(signinSchema),
     defaultValues: { email: "", csrfToken, callbackUrl: String(callbackUrl) },
+    shouldUseNativeValidation: false,
   });
 
   // 2. Define a submit handler.
