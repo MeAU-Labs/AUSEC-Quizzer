@@ -38,7 +38,7 @@ export default function LoginForm({
   // 1. Define your form.
   const form = useForm<z.infer<typeof signinSchema>>({
     resolver: zodResolver(signinSchema),
-    defaultValues: { email: "", csrfToken },
+    defaultValues: { email: "", csrfToken: csrfToken },
     shouldUseNativeValidation: false,
   });
 
