@@ -30,7 +30,7 @@ const errors = {
 export default function SignInPage() {
   const searchParams = useSearchParams();
 
-  const csrfToken = use(getCsrfToken());
+  const csrfToken = use(getCsrfToken()); // get csrf token client side
 
   const error = searchParams.get("error");
 
