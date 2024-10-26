@@ -83,7 +83,7 @@ export default function LandingPage() {
           className="whitespace-nowrap"
         >
           <p className="p-2 text-2xl font-extrabold text-orange-500">
-            Registration has been extended till October 30th, 2024
+            Registrations extended till 30th October 2024
           </p>
         </motion.div>
       </motion.section>
