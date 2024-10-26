@@ -68,26 +68,23 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b">
-      <motion.section
-        className="mb-0 flex items-center justify-center overflow-hidden bg-gray-600"
-        {...fadeIn}
-      >
-        <motion.div
-          initial={{ x: "100%" }}
-          animate={{ x: "-150%" }}
-          transition={{
-            repeat: Infinity,
-            duration: 7,
-            ease: "linear",
-          }}
-          className="whitespace-nowrap"
-        >
-          <p className="p-2 text-2xl font-extrabold text-orange-500">
-            Registrations extended till 30th October 2024
-          </p>
-        </motion.div>
-      </motion.section>
       <header className="bg-gray-600 py-4 text-white">
+        <motion.section className="mb-0 flex items-center justify-center overflow-hidden">
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: "-150%" }}
+            transition={{
+              repeat: Infinity,
+              duration: 7,
+              ease: "linear",
+            }}
+            className="whitespace-nowrap"
+          >
+            <p className="pb-4 text-2xl font-extrabold text-orange-500">
+              Registrations extended till 30th October 2024
+            </p>
+          </motion.div>
+        </motion.section>
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-md font-bold">
             Centre for Entrepreneurship Development
