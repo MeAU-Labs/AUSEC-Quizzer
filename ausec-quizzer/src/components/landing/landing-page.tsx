@@ -66,12 +66,27 @@ export default function LandingPage() {
     transition: { duration: 0.1 },
   };
 
-  const openPdf = () => {
-    window.open("/themes.pdf", "_blank");
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b">
+      <motion.section
+        className="mb-0 flex items-center justify-center overflow-hidden bg-gray-600"
+        {...fadeIn}
+      >
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: "-150%" }}
+          transition={{
+            repeat: Infinity,
+            duration: 7,
+            ease: "linear",
+          }}
+          className="whitespace-nowrap"
+        >
+          <p className="p-2 text-2xl font-extrabold text-orange-500">
+            Registration has been extended till October 30th, 2024
+          </p>
+        </motion.div>
+      </motion.section>
       <header className="bg-gray-600 py-4 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-md font-bold">
@@ -80,7 +95,6 @@ export default function LandingPage() {
           <p className="text-xs">Anna University, Chennai - 600 025</p>
         </div>
       </header>
-
       <main className="container mx-auto px-4 py-8">
         <motion.section
           className="mb-16"
@@ -142,7 +156,7 @@ export default function LandingPage() {
                 <a
                   href={REGISTER_FORM_LINK}
                   target="_blank"
-                  className="border-orange rounded-lg border-2 bg-primary px-4 py-2 font-semibold text-white"
+                  className="rounded-lg bg-primary px-4 py-2 font-semibold text-white"
                 >
                   Register Now
                 </a>
@@ -154,12 +168,13 @@ export default function LandingPage() {
             {...fadeIn}
           >
             <Card>
-              <button
-                className="rounded-lg bg-orange-500 p-2 text-white"
-                onClick={openPdf}
+              <a
+                className="rounded-lg bg-primary px-4 py-2 font-semibold text-white"
+                href="/themes.pdf"
+                target="_blank"
               >
                 <strong>Themes and Deadlines</strong>
-              </button>
+              </a>
             </Card>
           </motion.section>
           <motion.div
