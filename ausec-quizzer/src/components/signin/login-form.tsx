@@ -24,7 +24,6 @@ const signinSchema = z.object({
     .min(1, { message: "Please enter your email address." })
     .email({ message: "Please enter a valid email address." }),
   csrfToken: z.string(),
-  callbackUrl: z.optional(z.string()),
 });
 
 export default function LoginForm({
@@ -39,7 +38,7 @@ export default function LoginForm({
   // 1. Define your form.
   const form = useForm<z.infer<typeof signinSchema>>({
     resolver: zodResolver(signinSchema),
-    defaultValues: { email: "", csrfToken, callbackUrl: String(callbackUrl) },
+    defaultValues: { email: "", csrfToken },
     shouldUseNativeValidation: false,
   });
 
@@ -71,18 +70,7 @@ export default function LoginForm({
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="callbackUrl"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input type="hidden" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+
         <div className="flex w-full flex-col gap-8">
           <FormField
             control={form.control}
