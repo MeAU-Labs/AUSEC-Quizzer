@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import {
   Atom,
@@ -10,6 +9,7 @@ import {
   Calendar,
   ChevronDown,
   ChevronRight,
+  Contact,
   Cpu,
   GraduationCap,
   Heart,
@@ -68,7 +68,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b">
-      <header className="bg-gray-600 py-4 text-white">
+      <header className="bg-gray-600 py-2 text-white">
         <motion.section className="mb-0 flex items-center justify-center overflow-hidden">
           <motion.div
             initial={{ x: "100%" }}
@@ -81,7 +81,7 @@ export default function LandingPage() {
             className="whitespace-nowrap"
           >
             <p className="pb-4 text-2xl font-extrabold text-orange-500">
-              Registrations extended till 4th November 2024
+              Registrations extended till 6th November 2024
             </p>
           </motion.div>
         </motion.section>
@@ -161,7 +161,7 @@ export default function LandingPage() {
             </div>
           </motion.div>
           <motion.section
-            className="mb-12 flex items-center justify-center"
+            className="mb-8 flex items-center justify-center"
             {...fadeIn}
           >
             <Card>
@@ -172,6 +172,30 @@ export default function LandingPage() {
               >
                 <strong>Themes and Deadlines</strong>
               </a>
+            </Card>
+          </motion.section>
+          <motion.section
+            className="mb-12 flex items-center justify-center"
+            {...fadeIn}
+          >
+            <Card>
+              <div className="relative flex items-center justify-center">
+                <a href="/poster.jpg" target="_blank" rel="noopener noreferrer">
+                  {/* Small Poster Image */}
+                  <img
+                    src="/poster.jpg"
+                    alt="Event Poster"
+                    className="w-48 cursor-pointer transition-transform hover:scale-105"
+                  />
+
+                  {/* Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <button className="animate-zoom rounded-lg bg-orange-500 p-1 font-semibold text-white">
+                      View Event Poster
+                    </button>
+                  </div>
+                </a>
+              </div>
             </Card>
           </motion.section>
           <motion.div
@@ -656,7 +680,7 @@ export default function LandingPage() {
           </Card>
         </motion.div>
 
-        <motion.section className="mb-12 pt-5" {...fadeIn}>
+        <motion.section className="mb-12 mt-4 pt-5" {...fadeIn}>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-1">
             <motion.div variants={fadeInFromLeft}>
               <Card className="h-full">
@@ -699,7 +723,7 @@ export default function LandingPage() {
                           Teams can register using the link{" "}
                           <a
                             href="https://docs.google.com/forms/d/e/1FAIpQLSfUD8icLkB3UUhivl0mEAmTcYbREjhegYxPo1fU1eLvI-EQjQ/viewform"
-                            className="bold text-blue-600"
+                            className="bold text-red-600"
                           >
                             Registration Form
                           </a>
@@ -832,6 +856,43 @@ export default function LandingPage() {
             </motion.div>
           </div>
         </motion.section>
+        <Card className="mt-6 h-full">
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Contact className="mr-2 h-6 w-6 text-red-600" />
+              Contact Us
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <p className="font-semibold">For any queries, please contact:</p>
+              <ul className="space-y-2">
+                <li>
+                  <strong>Sakthivel:</strong> +91 99440 85762
+                </li>
+                <li>
+                  <strong>Sivakumar:</strong> +91 93666 55446
+                </li>
+                <li>
+                  <strong>Vasanthan:</strong> +91 90473 73594
+                </li>
+                <li>
+                  <strong>Rajkapoor:</strong> +91 95000 43581
+                </li>
+              </ul>
+              <p className="font-semibold">For quiz-related problems:</p>
+              <p>
+                Kindly email us at:{" "}
+                <a
+                  href="mailto:puthulirausec@gmail.com"
+                  className="text-red-600 underline"
+                >
+                  puthulirausec@gmail.com
+                </a>
+              </p>
+            </div>
+          </CardContent>
+        </Card>
       </main>
 
       <footer className="mt-8 bg-gray-600 py-4 text-white">
