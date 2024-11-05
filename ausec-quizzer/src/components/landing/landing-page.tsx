@@ -185,7 +185,7 @@ export default function LandingPage() {
               className="mb-12 flex flex-col items-center justify-center gap-8 px-4 md:flex-row"
               {...fadeIn}
             >
-              <Card className="flex flex-col items-center gap-4 md:flex-row md:items-start">
+              <Card className="flex flex-col items-center gap-4 p-2 md:flex-row md:items-start">
                 {/* Small Poster with Overlay Button */}
                 <div className="relative w-48 flex-shrink-0">
                   <img
@@ -205,11 +205,8 @@ export default function LandingPage() {
                 </div>
 
                 {/* Event Information */}
-                <div className="mt-4 max-w-sm text-center text-sm text-gray-600 md:mt-0 md:text-left">
-                  <h3 className="mb-2 font-bold text-orange-600">
-                    Event Information
-                  </h3>
-                  <p>
+                <div className="mt-4 max-w-sm p-2 text-center text-sm text-gray-600 md:mt-0 md:text-left">
+                  <p className="mt-4">
                     Hon'ble Minister for School Education Thiru Anbil Mahesh
                     Poyyamozhi released the logo of the Puthulir Event in his
                     chamber at Secretariat, 04-11-2024.
