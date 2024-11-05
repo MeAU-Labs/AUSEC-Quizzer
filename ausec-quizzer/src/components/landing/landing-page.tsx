@@ -66,6 +66,11 @@ export default function LandingPage() {
     transition: { duration: 0.1 },
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-b">
       <header className="bg-gray-600 py-2 text-white">
@@ -174,30 +179,74 @@ export default function LandingPage() {
               </a>
             </Card>
           </motion.section>
-          <motion.section
-            className="mb-12 flex items-center justify-center"
-            {...fadeIn}
-          >
-            <Card>
-              <div className="relative flex items-center justify-center">
-                <a href="/poster.jpg" target="_blank" rel="noopener noreferrer">
-                  {/* Small Poster Image */}
+
+          <div className="relative">
+            <motion.section
+              className="mb-12 flex flex-col items-center justify-center gap-8 px-4 md:flex-row"
+              {...fadeIn}
+            >
+              <Card className="flex flex-col items-center gap-4 md:flex-row md:items-start">
+                {/* Small Poster with Overlay Button */}
+                <div className="relative w-48 flex-shrink-0">
                   <img
                     src="/poster.jpg"
                     alt="Event Poster"
-                    className="w-48 cursor-pointer transition-transform hover:scale-105"
+                    className="w-full cursor-pointer transition-transform hover:scale-105"
+                    onClick={handleOpen} // Open full poster on click
                   />
-
-                  {/* Button Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <button className="animate-zoom rounded-lg bg-orange-500 p-1 font-semibold text-white">
-                      View Event Poster
+                    <button
+                      onClick={handleOpen}
+                      className="rounded-lg bg-orange-500 px-3 py-1 font-semibold text-white transition-transform hover:scale-105"
+                    >
+                      View Poster
                     </button>
                   </div>
-                </a>
+                </div>
+
+                {/* Event Information */}
+                <div className="mt-4 max-w-sm text-center text-sm text-gray-600 md:mt-0 md:text-left">
+                  <h3 className="mb-2 font-bold text-orange-600">
+                    Event Information
+                  </h3>
+                  <p>
+                    Hon'ble Minister for School Education Thiru Anbil Mahesh
+                    Poyyamozhi released the logo of the Puthulir Event in his
+                    chamber at Secretariat, 04-11-2024.
+                  </p>
+                  <p className="mt-2">
+                    This logo is created out of the handwriting of Kalaignar M.
+                    Karunanidhi, retrieved from letters to present Chief
+                    Minister Thiru. M K Stalin on 28.11.1977, written from
+                    Central Prison, Chennai, congratulating the birth of present
+                    Deputy Chief Minister Thiru. Udhayanidhi Stalin.
+                  </p>
+                </div>
+              </Card>
+            </motion.section>
+
+            {/* Full-size Poster Modal */}
+            {isOpen && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
+                <div className="relative mx-auto flex max-h-full max-w-full items-center justify-center overflow-hidden rounded-lg bg-white p-2 shadow-lg">
+                  {/* Center the image within the modal */}
+                  <img
+                    src="/poster.jpg"
+                    alt="Event Poster"
+                    className="h-auto max-h-[90vh] w-auto max-w-[90vw] rounded-lg" // Use max dimensions to avoid overflow
+                  />
+                  <button
+                    onClick={handleClose}
+                    className="absolute right-4 top-4 text-2xl text-gray-500 hover:text-gray-700"
+                    aria-label="Close"
+                  >
+                    &times;
+                  </button>
+                </div>
               </div>
-            </Card>
-          </motion.section>
+            )}
+          </div>
+
           <motion.div
             className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3"
             variants={staggerChildren}
