@@ -172,6 +172,34 @@ export default function LandingPage() {
             <Card>
               <a
                 className="rounded-lg bg-primary px-4 py-2 font-semibold text-white"
+                href="/district_poc.pdf"
+                target="_blank"
+              >
+                <strong>District Venue POC</strong>
+              </a>
+            </Card>
+          </motion.section>
+          <motion.section
+            className="mb-8 flex items-center justify-center"
+            {...fadeIn}
+          >
+            <Card>
+              <a
+                className="rounded-lg bg-primary px-4 py-2 font-semibold text-white"
+                href="/district_venue.pdf"
+                target="_blank"
+              >
+                <strong>District Venue Partners</strong>
+              </a>
+            </Card>
+          </motion.section>
+          <motion.section
+            className="mb-8 flex items-center justify-center"
+            {...fadeIn}
+          >
+            <Card>
+              <a
+                className="rounded-lg bg-primary px-4 py-2 font-semibold text-white"
                 href="/themes.pdf"
                 target="_blank"
               >
