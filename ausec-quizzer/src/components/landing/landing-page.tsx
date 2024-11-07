@@ -105,11 +105,11 @@ export default function LandingPage() {
           variants={staggerChildren}
         >
           <div>
-            <div className="mb-4 flex justify-center">
+            <div className="mb-4 mt-4 flex justify-center">
               <div className="flex items-center space-x-4">
                 {" "}
                 {/* Changed to flex and added space-x-4 */}
-                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300 shadow-lg">
+                <div className="w-25 h-24 overflow-hidden rounded-lg shadow-lg">
                   {" "}
                   {/* Changed to rounded-lg */}
                   <img
@@ -118,7 +118,7 @@ export default function LandingPage() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300 shadow-lg">
+                <div className="w-25 h-24 overflow-hidden rounded-lg shadow-lg">
                   {" "}
                   {/* Changed to rounded-lg */}
                   <img
@@ -127,7 +127,7 @@ export default function LandingPage() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300 shadow-lg">
+                <div className="w-25 h-24 overflow-hidden rounded-lg shadow-lg">
                   {" "}
                   {/* Changed to rounded-lg */}
                   <img
@@ -138,8 +138,8 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="mb-4 flex flex-col items-center p-4">
-              <h1 className="mb-2 text-xl font-bold text-primary">
+            <div className="mb-8 flex flex-col items-center p-4">
+              <h1 className="mb-2 text-xl font-bold text-primary md:text-2xl">
                 District Venue Partners
               </h1>
               <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
@@ -193,7 +193,7 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-          <motion.div className="mb-8 text-center" variants={fadeIn}>
+          <motion.div className="mb-10 text-center" variants={fadeIn}>
             <h2 className="mb-4 text-6xl font-bold text-primary">
               <Typewriter
                 words={[APP_NAME, APP_NAME_TAMIL]}
@@ -208,69 +208,55 @@ export default function LandingPage() {
             <p className="mb-6 text-2xl text-muted-foreground">
               Igniting Young Minds, Cultivating Tomorrow&apos;s Innovators
             </p>
-            <div className="flex justify-center space-x-4">
-              <motion.button>
-                <a
-                  href="/quiz"
-                  className="hover:bg-primary-dark rounded-lg bg-primary px-4 py-2 font-semibold text-white"
+            <div className="mb-4 space-y-4 text-center">
+              {/* Quiz and Register Buttons */}
+              <motion.div className="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0">
+                <motion.button className="hover:bg-primary-dark w-48 rounded-lg bg-primary px-2 py-1 font-semibold text-white">
+                  <a href="/quiz" className="block w-full">
+                    Take the Quiz
+                  </a>
+                </motion.button>
+                <motion.button className="hover:bg-primary-dark w-48 rounded-lg bg-primary px-2 py-1 font-semibold text-white">
+                  <a
+                    href={REGISTER_FORM_LINK}
+                    target="_blank"
+                    className="block w-full"
+                  >
+                    Register Now
+                  </a>
+                </motion.button>
+              </motion.div>
+
+              {/* Venue PDF Buttons */}
+              <motion.div
+                className="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0"
+                {...fadeIn}
+              >
+                <motion.button
+                  className="w-48 rounded-lg bg-primary px-2 py-1 font-semibold text-white"
+                  onClick={() => window.open("/district_venue.pdf", "_blank")}
                 >
-                  Take the Quiz
-                </a>
-              </motion.button>
-              <motion.button>
-                <a
-                  href={REGISTER_FORM_LINK}
-                  target="_blank"
-                  className="rounded-lg bg-primary px-4 py-2 font-semibold text-white"
+                  District Venues
+                </motion.button>
+                <motion.button
+                  className="w-48 rounded-lg bg-primary px-2 py-1 font-semibold text-white"
+                  onClick={() => window.open("/district_poc.pdf", "_blank")}
                 >
-                  Register Now
-                </a>
-              </motion.button>
+                  District Venue POC
+                </motion.button>
+              </motion.div>
+
+              {/* Themes and Deadlines PDF */}
+              <motion.div className="flex justify-center" {...fadeIn}>
+                <motion.button
+                  className="w-48 rounded-lg bg-primary px-2 py-1 font-semibold text-white"
+                  onClick={() => window.open("/themes.pdf", "_blank")}
+                >
+                  Themes and Deadlines
+                </motion.button>
+              </motion.div>
             </div>
           </motion.div>
-          <motion.section
-            className="mb-8 flex items-center justify-center"
-            {...fadeIn}
-          >
-            <Card>
-              <a
-                className="rounded-lg bg-primary px-4 py-2 font-semibold text-white"
-                href="/district_poc.pdf"
-                target="_blank"
-              >
-                <strong>District Venue POC</strong>
-              </a>
-            </Card>
-          </motion.section>
-          <motion.section
-            className="mb-8 flex items-center justify-center"
-            {...fadeIn}
-          >
-            <Card>
-              <a
-                className="rounded-lg bg-primary px-4 py-2 font-semibold text-white"
-                href="/district_venue.pdf"
-                target="_blank"
-              >
-                <strong>District Venue Partners</strong>
-              </a>
-            </Card>
-          </motion.section>
-          <motion.section
-            className="mb-8 flex items-center justify-center"
-            {...fadeIn}
-          >
-            <Card>
-              <a
-                className="rounded-lg bg-primary px-4 py-2 font-semibold text-white"
-                href="/themes.pdf"
-                target="_blank"
-              >
-                <strong>Themes and Deadlines</strong>
-              </a>
-            </Card>
-          </motion.section>
-
           <div className="relative">
             <motion.section
               className="mb-12 flex flex-col items-center justify-center gap-8 px-4 md:flex-row"
