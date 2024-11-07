@@ -109,7 +109,7 @@ export default function LandingPage() {
               <div className="flex items-center space-x-4">
                 {" "}
                 {/* Changed to flex and added space-x-4 */}
-                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300">
+                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300 shadow-lg">
                   {" "}
                   {/* Changed to rounded-lg */}
                   <img
@@ -118,7 +118,16 @@ export default function LandingPage() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300">
+                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300 shadow-lg">
+                  {" "}
+                  {/* Changed to rounded-lg */}
+                  <img
+                    src="Puthulir.jpg"
+                    alt="Puthulir Image"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="w-25 h-24 overflow-hidden rounded-lg border border-gray-300 shadow-lg">
                   {" "}
                   {/* Changed to rounded-lg */}
                   <img
@@ -129,52 +138,56 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="mb-4 flex justify-center">
-              <h1 className="text-xl font-bold">District Venue Partners</h1>
-            </div>
-            <div className="mb-4 flex justify-center">
-              <div className="grid grid-cols-2 gap-4 sm:flex sm:flex-nowrap sm:space-x-4">
-                {/* Changed to a 2-column grid on mobile, flex layout on larger screens */}
-                <div className="sm:w-25 h-auto w-full overflow-hidden rounded-lg">
+            <div className="mb-4 flex flex-col items-center p-4">
+              <h1 className="mb-2 text-xl font-bold text-primary">
+                District Venue Partners
+              </h1>
+              <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
                   <img
                     src="./Partner1.jpg"
-                    alt="First Image"
-                    className="h-auto w-full object-contain"
+                    alt="KSR College of Engineering"
+                    className="h-20 w-32 object-contain"
                   />
                 </div>
-                <div className="sm:w-25 h-auto w-full overflow-hidden rounded-lg">
+
+                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
                   <img
                     src="./Partner2.jpg"
-                    alt="Second Image"
-                    className="h-auto w-full object-contain"
+                    alt="Knowledge Institute of Technology"
+                    className="h-20 w-32 object-contain"
                   />
                 </div>
-                <div className="sm:w-25 h-auto w-full overflow-hidden rounded-lg">
+
+                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
                   <img
                     src="./Partner3.jpg"
-                    alt="Third Image"
-                    className="h-auto w-full object-contain"
+                    alt="Prim Buds Garden"
+                    className="h-20 w-32 object-contain"
                   />
                 </div>
-                <div className="sm:w-25 h-auto w-full overflow-hidden rounded-lg">
+
+                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
                   <img
                     src="./Partner4.jpg"
-                    alt="Fourth Image"
-                    className="h-auto w-full object-contain"
+                    alt="Sri Eshwar College of Engineering"
+                    className="h-20 w-32 object-contain"
                   />
                 </div>
-                <div className="sm:w-25 h-auto w-full overflow-hidden rounded-lg">
+
+                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
                   <img
                     src="./Partner5.jpg"
-                    alt="Fifth Image"
-                    className="h-auto w-full object-contain"
+                    alt="Jeppiaar Institute of Technology"
+                    className="h-20 w-32 object-contain"
                   />
                 </div>
-                <div className="sm:w-25 h-auto w-full overflow-hidden rounded-lg">
+
+                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
                   <img
                     src="./Partner6.jpg"
-                    alt="Sixth Image"
-                    className="h-auto w-full object-contain"
+                    alt="Vivekanandha Educational Institutions"
+                    className="h-20 w-32 object-contain"
                   />
                 </div>
               </div>
