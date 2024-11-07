@@ -129,6 +129,56 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
+            <div className="mb-4 flex justify-center">
+              <h1 className="text-xl font-bold">District Venue Partners</h1>
+            </div>
+            <div className="mb-4 flex justify-center">
+              <div className="grid grid-cols-2 gap-4 sm:flex sm:flex-nowrap sm:space-x-4">
+                {/* Changed to a 2-column grid on mobile, flex layout on larger screens */}
+                <div className="sm:w-25 h-auto w-full overflow-hidden rounded-lg">
+                  <img
+                    src="./Partner1.jpg"
+                    alt="First Image"
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+                <div className="sm:w-25 h-auto w-full overflow-hidden rounded-lg">
+                  <img
+                    src="./Partner2.jpg"
+                    alt="Second Image"
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+                <div className="sm:w-25 h-auto w-full overflow-hidden rounded-lg">
+                  <img
+                    src="./Partner3.jpg"
+                    alt="Third Image"
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+                <div className="sm:w-25 h-auto w-full overflow-hidden rounded-lg">
+                  <img
+                    src="./Partner4.jpg"
+                    alt="Fourth Image"
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+                <div className="sm:w-25 h-auto w-full overflow-hidden rounded-lg">
+                  <img
+                    src="./Partner5.jpg"
+                    alt="Fifth Image"
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+                <div className="sm:w-25 h-auto w-full overflow-hidden rounded-lg">
+                  <img
+                    src="./Partner6.jpg"
+                    alt="Sixth Image"
+                    className="h-auto w-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <motion.div className="mb-8 text-center" variants={fadeIn}>
             <h2 className="mb-4 text-6xl font-bold text-primary">
@@ -910,6 +960,132 @@ export default function LandingPage() {
                         <p>
                           Yes, students from private schools can participate,
                           but registration charges may apply.
+                        </p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>
+                          16. What is required for the district rounds in terms
+                          of team composition and mentor presence?
+                        </strong>
+                        <p>
+                          Teams must be accompanied by a mentor. If a mentor
+                          cannot attend, another faculty member or a parent may
+                          accompany the team with authorization from the school
+                          principal. All team members should ideally attend to
+                          receive certificates.
+                        </p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>
+                          17. What materials do teams need to bring to the
+                          district round presentation?
+                        </strong>
+                        <p>
+                          Teams must prepare four mandatory slides covering the
+                          problem statement, approach, use case, and solution. A
+                          demo is optional. Presentations should be stored on a
+                          pen drive, and teams can also have them accessible by
+                          email.
+                        </p>
+                      </div>
+                      <div className="mb-4">
+                        <strong>
+                          18. Are students required to wear a specific dress
+                          code?
+                        </strong>
+                        <p>
+                          Students are expected to be in school uniforms and
+                          carry ID cards during district rounds.
+                        </p>
+                      </div>
+
+                      <div className="mb-4">
+                        <strong>
+                          19. Is there an option for online participation?
+                        </strong>
+                        <p>
+                          Online participation is not encouraged. If it is
+                          necessary, the reason must be compelling, like a
+                          health issue.
+                        </p>
+                      </div>
+
+                      <div className="mb-4">
+                        <strong>
+                          20. Is accommodation provided at the venue?
+                        </strong>
+                        <p>
+                          Accommodation can be arranged through the Venue Point
+                          of Contact, but it is not mandatory.
+                        </p>
+                      </div>
+
+                      <div className="mb-4">
+                        <strong>
+                          21. Are all teams who submitted presentations eligible
+                          for the district rounds?
+                        </strong>
+                        <p>
+                          Yes, every team that submitted the presentation is
+                          eligible to attend the district round.
+                        </p>
+                      </div>
+
+                      <div className="mb-4">
+                        <strong>
+                          22. What is the reporting time for the district event?
+                        </strong>
+                        <p>
+                          The event is scheduled to start at 9:00 or 10:00 AM.
+                          Teams should arrive early and check with the venue's
+                          point of contact for logistics.
+                        </p>
+                      </div>
+
+                      <div className="mb-4">
+                        <strong>
+                          23. What if a team or school did not receive a
+                          confirmation letter?
+                        </strong>
+                        <p>
+                          No individual confirmation letter is provided. The
+                          list of eligible teams and event details are available
+                          on the official group or the puthulir.com website.
+                        </p>
+                      </div>
+
+                      <div className="mb-4">
+                        <strong>
+                          24. Can students present in a language of their
+                          choice?
+                        </strong>
+                        <p>
+                          Yes, presentations can be conducted in English, Tamil,
+                          or a combination of both, depending on students’
+                          comfort.
+                        </p>
+                      </div>
+
+                      <div className="mb-4">
+                        <strong>
+                          25. Is it mandatory to bring a model along with the
+                          presentation?
+                        </strong>
+                        <p>
+                          Bringing a model is not mandatory; only the
+                          presentation is required.
+                        </p>
+                      </div>
+
+                      <div className="mb-4">
+                        <strong>
+                          26. What should mentors do during the event?
+                        </strong>
+                        <p>
+                          Mentors need to sign the attendance sheet at the
+                          venue, take a photograph of each presenting team with
+                          the event banner in the background, and coordinate any
+                          logistical issues.
                         </p>
                       </div>
                     </>
