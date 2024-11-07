@@ -242,7 +242,7 @@ export default function LandingPage() {
                   className="w-48 rounded-lg bg-primary px-2 py-1 font-semibold text-white"
                   onClick={() => window.open("/district_poc.pdf", "_blank")}
                 >
-                  District Venue POC
+                  District Venue POCs
                 </motion.button>
               </motion.div>
 
