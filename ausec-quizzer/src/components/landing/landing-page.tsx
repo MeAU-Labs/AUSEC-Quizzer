@@ -76,16 +76,20 @@ export default function LandingPage() {
             animate={{ x: "-150%" }}
             transition={{
               repeat: Infinity,
-              duration: 7,
+              duration: 30,
               ease: "linear",
             }}
-            className="whitespace-nowrap"
+            className="flex whitespace-nowrap"
           >
-            <p className="pb-4 text-2xl font-extrabold text-orange-500">
-              District Level results are out! Check them out below.
-            </p>
+            <span className="pb-4 text-2xl font-extrabold text-orange-500">
+              District Level results are out! Email will be sent by tomorrow.
+              Congratulations to the selected teams. We welcome you all to Anna
+              University on NOV 14th. Reporting time 8am at Raman Auditorium,
+              ACTECH Campus, Anna university, Chennai.
+            </span>
           </motion.div>
         </motion.section>
+
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-md font-bold">
             Centre for Entrepreneurship Development
