@@ -34,11 +34,7 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-import {
-  APP_NAME,
-  APP_NAME_TAMIL,
-  REGISTER_FORM_LINK,
-} from "~/utils/constants";
+import { APP_NAME, APP_NAME_TAMIL } from "~/utils/constants";
 
 export default function LandingPage() {
   const fadeIn = {
@@ -86,7 +82,7 @@ export default function LandingPage() {
             className="whitespace-nowrap"
           >
             <p className="pb-4 text-2xl font-extrabold text-orange-500">
-              Registrations extended till 6th November 2024
+              District Level results are out! Check them out below.
             </p>
           </motion.div>
         </motion.section>
@@ -208,9 +204,42 @@ export default function LandingPage() {
             <p className="mb-6 text-2xl text-muted-foreground">
               Igniting Young Minds, Cultivating Tomorrow&apos;s Innovators
             </p>
+            <motion.div className="mb-4 flex flex-col items-center p-4">
+              <div>
+                <h1 className="mb-4 text-xl font-bold text-primary md:text-2xl">
+                  District Level Results
+                </h1>
+              </div>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
+                {[
+                  "State Board",
+                  "IB-ICSE-IGCSE Board",
+                  "Matric Board",
+                  "CBSE Board",
+                ].map((label, index) => {
+                  const filePaths = [
+                    "/SB_district.pdf",
+                    "/IB-ICSE-IGCSE_district.pdf",
+                    "/Matric_district.pdf",
+                    "/CBSE_district.pdf",
+                  ];
+                  return (
+                    <motion.button
+                      key={index}
+                      className="hover:bg-primary-dark w-48 transform rounded-lg bg-primary px-2 py-1 font-semibold text-white transition-transform hover:scale-105 focus:outline-none"
+                      onClick={() => window.open(filePaths[index], "_blank")}
+                      aria-label={`Download ${label} Results`}
+                    >
+                      {label}
+                    </motion.button>
+                  );
+                })}
+              </div>
+            </motion.div>
+
             <div className="mb-4 space-y-4 text-center">
               {/* Quiz and Register Buttons */}
-              <motion.div className="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0">
+              {/* <motion.div className="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0">
                 <motion.button className="hover:bg-primary-dark w-48 rounded-lg bg-primary px-2 py-1 font-semibold text-white">
                   <a href="/quiz" className="block w-full">
                     Take the Quiz
@@ -225,10 +254,10 @@ export default function LandingPage() {
                     Register Now
                   </a>
                 </motion.button>
-              </motion.div>
+              </motion.div> */}
 
               {/* Venue PDF Buttons */}
-              <motion.div
+              {/* <motion.div
                 className="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0"
                 {...fadeIn}
               >
@@ -244,7 +273,7 @@ export default function LandingPage() {
                 >
                   District Venue POCs
                 </motion.button>
-              </motion.div>
+              </motion.div>  */}
 
               {/* Themes and Deadlines PDF */}
               <motion.div className="flex justify-center" {...fadeIn}>
@@ -257,6 +286,7 @@ export default function LandingPage() {
               </motion.div>
             </div>
           </motion.div>
+
           <div className="relative">
             <motion.section
               className="mb-12 flex flex-col items-center justify-center gap-8 px-4 md:flex-row"
