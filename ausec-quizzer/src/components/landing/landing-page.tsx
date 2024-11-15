@@ -76,16 +76,15 @@ export default function LandingPage() {
             animate={{ x: "-150%" }}
             transition={{
               repeat: Infinity,
-              duration: 30,
+              duration: 13,
               ease: "linear",
             }}
             className="flex whitespace-nowrap"
           >
             <span className="pb-4 text-2xl font-extrabold text-orange-500">
-              District Level results are out! Email will be sent by tomorrow.
-              Congratulations to the selected teams. We welcome you all to Anna
-              University on NOV 14th. Reporting time 8am at Raman Auditorium,
-              ACTECH Campus, Anna university, Chennai.
+              PUTHULIR 2024 FINALS - Award winning ideas have been declared.{" "}
+              {""}
+              Check below to view the results.
             </span>
           </motion.div>
         </motion.section>
@@ -104,97 +103,41 @@ export default function LandingPage() {
           animate="animate"
           variants={staggerChildren}
         >
-          <div>
-            <div className="mb-4 mt-4 flex justify-center">
-              <div className="flex items-center space-x-4">
+          <div className="mb-8 mt-4 flex justify-center">
+            <div className="flex items-center space-x-4">
+              {" "}
+              {/* Changed to flex and added space-x-4 */}
+              <div className="w-25 h-24 overflow-hidden rounded-lg shadow-lg">
                 {" "}
-                {/* Changed to flex and added space-x-4 */}
-                <div className="w-25 h-24 overflow-hidden rounded-lg shadow-lg">
-                  {" "}
-                  {/* Changed to rounded-lg */}
-                  <img
-                    src="https://i.imgur.com/kXHaZGh.png"
-                    alt="First Image"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="w-25 h-24 overflow-hidden rounded-lg shadow-lg">
-                  {" "}
-                  {/* Changed to rounded-lg */}
-                  <img
-                    src="Puthulir.jpg"
-                    alt="Puthulir Image"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="w-25 h-24 overflow-hidden rounded-lg shadow-lg">
-                  {" "}
-                  {/* Changed to rounded-lg */}
-                  <img
-                    src="https://i.imgur.com/PcMxZbD.png"
-                    alt="Second Image"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
+                {/* Changed to rounded-lg */}
+                <img
+                  src="https://i.imgur.com/kXHaZGh.png"
+                  alt="First Image"
+                  className="h-full w-full object-cover"
+                />
               </div>
-            </div>
-            <div className="mb-8 flex flex-col items-center p-4">
-              <h1 className="mb-2 text-xl font-bold text-primary md:text-2xl">
-                District Venue Partners
-              </h1>
-              <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
-                  <img
-                    src="./Partner1.jpg"
-                    alt="KSR College of Engineering"
-                    className="h-20 w-32 object-contain"
-                  />
-                </div>
-
-                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
-                  <img
-                    src="./Partner2.jpg"
-                    alt="Knowledge Institute of Technology"
-                    className="h-20 w-32 object-contain"
-                  />
-                </div>
-
-                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
-                  <img
-                    src="./Partner3.jpg"
-                    alt="Prim Buds Garden"
-                    className="h-20 w-32 object-contain"
-                  />
-                </div>
-
-                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
-                  <img
-                    src="./Partner4.jpg"
-                    alt="Sri Eshwar College of Engineering"
-                    className="h-20 w-32 object-contain"
-                  />
-                </div>
-
-                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
-                  <img
-                    src="./Partner5.jpg"
-                    alt="Jeppiaar Institute of Technology"
-                    className="h-20 w-32 object-contain"
-                  />
-                </div>
-
-                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
-                  <img
-                    src="./Partner6.jpg"
-                    alt="Vivekanandha Educational Institutions"
-                    className="h-20 w-32 object-contain"
-                  />
-                </div>
+              <div className="w-25 h-24 overflow-hidden rounded-lg shadow-lg">
+                {" "}
+                {/* Changed to rounded-lg */}
+                <img
+                  src="Puthulir.jpg"
+                  alt="Puthulir Image"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="w-25 h-24 overflow-hidden rounded-lg shadow-lg">
+                {" "}
+                {/* Changed to rounded-lg */}
+                <img
+                  src="https://i.imgur.com/PcMxZbD.png"
+                  alt="Second Image"
+                  className="h-full w-full object-cover"
+                />
               </div>
             </div>
           </div>
-          <motion.div className="mb-10 text-center" variants={fadeIn}>
-            <h2 className="mb-4 text-6xl font-bold text-primary">
+          <motion.div className="mb-6 text-center" variants={fadeIn}>
+            <h2 className="mb-6 text-6xl font-bold text-primary">
               <Typewriter
                 words={[APP_NAME, APP_NAME_TAMIL]}
                 loop={-1}
@@ -205,16 +148,20 @@ export default function LandingPage() {
                 cursorBlinking
               />
             </h2>
-            <p className="mb-6 text-2xl text-muted-foreground">
+            <p className="mb-4 text-2xl text-muted-foreground">
               Igniting Young Minds, Cultivating Tomorrow&apos;s Innovators
             </p>
-            <motion.div className="mb-4 flex flex-col items-center p-4">
-              <div>
-                <h1 className="mb-4 text-xl font-bold text-primary md:text-2xl">
-                  District Level Results
-                </h1>
-              </div>
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
+
+            <div className="mb-4 flex justify-center" id="state-results">
+              <h1 className="text-md inline-block transform rounded-lg bg-orange-500 px-4 py-2 font-bold text-white shadow-lg transition-transform hover:scale-105 active:scale-95 md:text-lg">
+                <a href="/finals-awards.pdf" target="_blank">
+                  Award Winning Ideas of Puthulir 2024 Finals
+                </a>
+              </h1>
+            </div>
+          </motion.div>
+
+          {/* <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
                 {[
                   "State Board",
                   "IB-ICSE-IGCSE Board",
@@ -238,12 +185,11 @@ export default function LandingPage() {
                     </motion.button>
                   );
                 })}
-              </div>
-            </motion.div>
+              </div> */}
 
-            <div className="mb-4 space-y-4 text-center">
-              {/* Quiz and Register Buttons */}
-              {/* <motion.div className="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0">
+          {/* <div className="mb-4 space-y-4 text-center"> */}
+          {/* Quiz and Register Buttons */}
+          {/* <motion.div className="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0">
                 <motion.button className="hover:bg-primary-dark w-48 rounded-lg bg-primary px-2 py-1 font-semibold text-white">
                   <a href="/quiz" className="block w-full">
                     Take the Quiz
@@ -260,8 +206,8 @@ export default function LandingPage() {
                 </motion.button>
               </motion.div> */}
 
-              {/* Venue PDF Buttons */}
-              {/* <motion.div
+          {/* Venue PDF Buttons */}
+          {/* <motion.div
                 className="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0"
                 {...fadeIn}
               >
@@ -279,8 +225,8 @@ export default function LandingPage() {
                 </motion.button>
               </motion.div>  */}
 
-              {/* Themes and Deadlines PDF */}
-              <motion.div className="flex justify-center" {...fadeIn}>
+          {/* Themes and Deadlines PDF */}
+          {/* <motion.div className="flex justify-center" {...fadeIn}>
                 <motion.button
                   className="w-48 rounded-lg bg-primary px-2 py-1 font-semibold text-white"
                   onClick={() => window.open("/themes.pdf", "_blank")}
@@ -289,11 +235,11 @@ export default function LandingPage() {
                 </motion.button>
               </motion.div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           <div className="relative">
             <motion.section
-              className="mb-12 flex flex-col items-center justify-center gap-8 px-4 md:flex-row"
+              className="mb-8 flex flex-col items-center justify-center gap-8 px-4 md:flex-row"
               {...fadeIn}
             >
               <Card className="flex flex-col items-center gap-4 p-2 md:flex-row md:items-start">
@@ -353,6 +299,63 @@ export default function LandingPage() {
                 </div>
               </div>
             )}
+          </div>
+
+          <div>
+            <div className="mb-8 flex flex-col items-center p-4">
+              <h1 className="mb-2 text-xl font-bold text-primary md:text-2xl">
+                District Venue Partners
+              </h1>
+              <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
+                  <img
+                    src="./Partner1.jpg"
+                    alt="KSR College of Engineering"
+                    className="h-20 w-32 object-contain"
+                  />
+                </div>
+
+                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
+                  <img
+                    src="./Partner2.jpg"
+                    alt="Knowledge Institute of Technology"
+                    className="h-20 w-32 object-contain"
+                  />
+                </div>
+
+                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
+                  <img
+                    src="./Partner3.jpg"
+                    alt="Prim Buds Garden"
+                    className="h-20 w-32 object-contain"
+                  />
+                </div>
+
+                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
+                  <img
+                    src="./Partner4.jpg"
+                    alt="Sri Eshwar College of Engineering"
+                    className="h-20 w-32 object-contain"
+                  />
+                </div>
+
+                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
+                  <img
+                    src="./Partner5.jpg"
+                    alt="Jeppiaar Institute of Technology"
+                    className="h-20 w-32 object-contain"
+                  />
+                </div>
+
+                <div className="flex h-full items-center justify-center rounded-lg bg-white p-4 shadow-lg">
+                  <img
+                    src="./Partner6.jpg"
+                    alt="Vivekanandha Educational Institutions"
+                    className="h-20 w-32 object-contain"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
           <motion.div
