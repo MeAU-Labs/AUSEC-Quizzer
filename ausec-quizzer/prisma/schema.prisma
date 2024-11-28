@@ -39,9 +39,9 @@ model User {
 model Session {
     id           String   @id @default(cuid())
     sessionToken String   @unique
-    userid       String
+    userId       String
     expires      DateTime
-    user         User     @relation(fields: [userid], references: [id], onDelete: Cascade)
+    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 // VerificationToken Table (unchanged)
@@ -57,37 +57,37 @@ model VerificationToken {
 
 // HighScore Table (new relation)
 model HighScore {
-    userid     String   @id
+    userId     String   @id
     score      Int
     achievedAt DateTime @default(now()) 
-    user       User     @relation("UserHighScores", fields: [userid], references: [id], onDelete: Cascade)
+    user       User     @relation("UserHighScores", fields: [userId], references: [id], onDelete: Cascade)
 }
 
 // UserSessionCount Table (new relation)
 model UserSessionCount {
-    userid     String  @id
+    userId     String  @id
     sessionCount Int   @default(0)
-    user       User    @relation("UserSessionCounts", fields: [userid], references: [id], onDelete: Cascade)
+    user       User    @relation("UserSessionCounts", fields: [userId], references: [id], onDelete: Cascade)
 }
 
 // EmailLink Table (new relation)
 model EmailLink {
-    userid     String   @id
+    userId     String   @id
     emailSentAt DateTime @default(now()) 
-    user       User     @relation("UserEmailLinks", fields: [userid], references: [id], onDelete: Cascade)
+    user       User     @relation("UserEmailLinks", fields: [userId], references: [id], onDelete: Cascade)
 }
 
 // EmailScore Table (new relation)
 model EmailScore {
-    userid     String   @id
+    userId     String   @id
     emailSentAt DateTime @default(now()) 
-    user       User     @relation("UserEmailScores", fields: [userid], references: [id], onDelete: Cascade)
+    user       User     @relation("UserEmailScores", fields: [userId], references: [id], onDelete: Cascade)
 }
 
 // SuspiciousActivity Table (new relation)
 model SuspiciousActivity {
-    userid     String   @id
+    userId     String   @id
     flaggedAt  DateTime @default(now()) 
     flaggedByAdmin Boolean @default(true)
-    user       User     @relation("UserSuspiciousActivities", fields: [userid], references: [id], onDelete: Cascade)
+    user       User     @relation("UserSuspiciousActivities", fields: [userId], references: [id], onDelete: Cascade)
 }
